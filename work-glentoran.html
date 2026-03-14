@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glentoran FC – Astutely Work</title>
+  <meta name="description" content="How Astutely helped Glentoran FC build a complete digital ecosystem — website, superstore, email, PR, digital screens and systems — for one of Ireland's most historic clubs." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="animations.js" defer></script>
+  <script src="cookies.js" defer></script>
+  <noscript><style>.hero-content > * { opacity: 1 !important; transform: none !important; } [data-reveal],[data-wipe] { opacity: 1 !important; transform: none !important; clip-path: none !important; }</style></noscript>
+  <style>
+    /* ── Glentoran brand tokens ───────────────────────────── */
+    :root {
+      --glen-green:  #0B4720;
+      --glen-mid:    #155C2C;
+      --glen-bright: #1E7A3C;
+      --glen-light:  #52C87A;   /* bright green for text on dark backgrounds */
+      --glen-black:  #0A1A0C;   /* very dark forest green, not pure black */
+    }
+
+    /* ── Case hero ──────────────────────────────────────────── */
+    .case-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 88vh;
+      overflow: hidden;
+    }
+    .case-hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 5rem 3.5rem 5rem max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+      background: var(--glen-black);
+      position: relative;
+      overflow: hidden;
+    }
+    .case-hero-content::before {
+      content: '';
+      position: absolute;
+      top: -4rem; right: -5rem;
+      width: 400px; height: 400px;
+      background: url('https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/08/GFC_Badge-v2.png') center/contain no-repeat;
+      opacity: 0.07;
+      pointer-events: none;
+    }
+    .case-hero-content::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--glen-light);
+    }
+    .case-hero-image {
+      overflow: hidden;
+      position: relative;
+    }
+    .case-hero-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .case-hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(11,71,32,0.3) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .case-back-link {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.55);
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin-bottom: 3rem; text-decoration: none; transition: color 0.2s;
+    }
+    .case-back-link:hover { color: #fff; }
+    .case-hero-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--glen-light);
+      margin-bottom: 1rem; display: block;
+    }
+    .case-hero h1 {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 0.9; color: #fff; margin-bottom: 0;
+      font-weight: 700; letter-spacing: -0.03em;
+    }
+    .case-hero-sub {
+      margin-top: 1.5rem; font-size: 1rem; line-height: 1.65;
+      color: rgba(255,255,255,0.72); max-width: 380px;
+    }
+    .hero-stats {
+      display: flex; gap: 2rem; margin-top: 3rem;
+      padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.15);
+      flex-wrap: wrap;
+    }
+    .hero-stat-n {
+      font-family: 'Source Serif 4', serif; font-size: 2rem;
+      font-weight: 300; color: #fff; line-height: 1; display: block;
+    }
+    .hero-stat-l {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--glen-light);
+      margin-top: 0.3rem; display: block;
+    }
+
+    /* ── Meta strip ─────────────────────────────────────────── */
+    .case-meta-strip {
+      display: flex; gap: 3rem; padding: 2rem 0;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      margin: 3rem 0; flex-wrap: wrap; align-items: center;
+    }
+    .case-meta-item p:first-child {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--steel); margin-bottom: 0.3rem;
+    }
+    .case-meta-item p:last-child {
+      font-size: 0.95rem; font-weight: 500; color: var(--navy);
+    }
+    .meta-badge { margin-left: auto; }
+    .meta-badge img { width: 52px; height: 52px; object-fit: contain; }
+
+    /* ── Pull quote ─────────────────────────────────────────── */
+    .glen-pull {
+      border-left: 4px solid var(--glen-bright);
+      padding: 1.5rem 2rem; margin: 2.5rem 0;
+      background: #f2f7f3; border-radius: 0 6px 6px 0;
+    }
+    .glen-pull p {
+      font-family: 'Source Serif 4', serif; font-size: 1.15rem;
+      font-weight: 300; color: var(--glen-green); line-height: 1.65; margin: 0;
+    }
+
+    /* ── Full-bleed image ───────────────────────────────────── */
+    .full-bleed-img {
+      width: 100%; max-height: 60vh; overflow: hidden;
+      position: relative;
+    }
+    .full-bleed-img img {
+      width: 100%; height: 60vh; object-fit: cover; object-position: center 30%;
+      display: block;
+    }
+    .full-bleed-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(8,14,9,0.4) 100%);
+    }
+
+    /* ── Photo grid layouts ─────────────────────────────────── */
+    .photo-grid-2 {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
+    }
+    .photo-grid-3 {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem;
+    }
+    .photo-grid-4 {
+      display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0.75rem;
+    }
+    .photo-grid-2-1 {
+      display: grid; grid-template-columns: 2fr 1fr; gap: 0.75rem;
+    }
+    .photo-grid-1-2 {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 0.75rem;
+    }
+
+    /* ── Challenge list ─────────────────────────────────────── */
+    .challenge-list { display: flex; flex-direction: column; gap: 0; }
+    .challenge-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1.25rem 0; border-bottom: 1px solid var(--border);
+    }
+    .challenge-item:first-child { border-top: 1px solid var(--border); }
+    .challenge-dot {
+      flex: 0 0 8px; width: 8px; height: 8px;
+      border-radius: 50%; background: var(--glen-bright);
+      margin-top: 0.35rem;
+    }
+    .challenge-title {
+      font-size: 0.9rem; font-weight: 600; color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+    .challenge-desc {
+      font-size: 0.82rem; color: var(--mid-grey); line-height: 1.55;
+    }
+
+    /* ── What we did – dark band ────────────────────────────── */
+    .glen-band {
+      background: #0F1F12; position: relative; overflow: hidden;
+    }
+    .glen-band::before {
+      content: ''; position: absolute; right: -6rem; top: 50%;
+      transform: translateY(-50%);
+      width: clamp(300px, 35vw, 580px); height: clamp(300px, 35vw, 580px);
+      background: url('https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/08/GFC_Badge-v2.png') center/contain no-repeat;
+      opacity: 0.06; pointer-events: none;
+    }
+    .glen-band .label { color: var(--glen-light); }
+    .glen-band h2 { color: #fff; }
+    .glen-band h3 { color: #fff; font-size: 1rem; margin-bottom: 0.6rem; }
+    .glen-band p { color: rgba(255,255,255,0.72); font-size: 0.88rem; }
+    .glen-band .service-icon svg { stroke: var(--glen-light); }
+
+    /* Services as full 6-grid */
+    .services-6 {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem 3rem;
+      margin-top: 3rem;
+    }
+    .svc-item { padding: 2rem; border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; }
+    .svc-item h3 { color: #fff; font-size: 0.95rem; margin-bottom: 1rem; font-weight: 600; }
+    .svc-num {
+      font-family: 'Source Serif 4', serif; font-size: 2.5rem; font-weight: 300;
+      color: var(--glen-light); opacity: 0.7; line-height: 1;
+      margin-bottom: 1rem; display: block;
+    }
+    .svc-problem {
+      font-size: 0.8rem; line-height: 1.6;
+      color: rgba(255,255,255,0.45);
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+    .svc-problem::before {
+      content: 'Problem — ';
+      font-style: normal; font-weight: 700;
+      font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); display: block; margin-bottom: 0.3rem;
+    }
+    .svc-solution {
+      font-size: 0.82rem; line-height: 1.65;
+      color: rgba(255,255,255,0.75);
+    }
+    .svc-solution::before {
+      content: 'Response — ';
+      font-weight: 700;
+      font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--glen-light); display: block; margin-bottom: 0.3rem;
+    }
+
+    /* ── Superstore section ─────────────────────────────────── */
+    .superstore-band {
+      background: #f7f5f0; position: relative; overflow: hidden;
+    }
+    .superstore-band .label { color: var(--glen-green); }
+    .superstore-logo {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;
+    }
+    .superstore-logo img { height: 44px; object-fit: contain; }
+    .shopify-tag {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #96bf48; color: #fff;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.3rem 0.75rem;
+      border-radius: 3px;
+    }
+    .store-grid {
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem;
+      align-items: start; margin-top: 2.5rem;
+    }
+    .store-images {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
+    }
+
+    /* ── Community / PR section ─────────────────────────────── */
+    .pr-band {
+      background: var(--glen-green); position: relative; overflow: hidden;
+    }
+    .pr-band .label { color: rgba(255,255,255,0.55); letter-spacing: 0.2em; }
+    .pr-band h2 { color: #fff; }
+    .pr-band p { color: rgba(255,255,255,0.7); }
+    .pr-band .pr-lead { color: rgba(255,255,255,0.85); font-size: 1.05rem; line-height: 1.7; }
+    .pr-image-wall {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .pr-image-wall .span-2 { grid-column: span 2; }
+
+    /* ── Outcomes ───────────────────────────────────────────── */
+    .outcomes-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem;
+    }
+    .outcome-card {
+      padding: 2rem; background: var(--grey);
+      border-radius: 6px; border-top: 3px solid var(--glen-bright);
+    }
+    .outcome-card .stat-n {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300; color: var(--glen-green);
+      line-height: 1; margin-bottom: 0.4rem;
+    }
+    .outcome-card p { font-size: 0.875rem; }
+
+    /* ── Quote block ────────────────────────────────────────── */
+    .glen-quote-block {
+      margin-top: 3rem; padding: 3rem;
+      background: var(--glen-black); border-radius: 6px;
+      max-width: 760px; position: relative; overflow: hidden;
+    }
+    .glen-quote-block::before {
+      content: ''; position: absolute;
+      bottom: -2rem; right: -2rem;
+      width: 180px; height: 180px;
+      background: url('https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/08/GFC_Badge-v2.png') center/contain no-repeat;
+      opacity: 0.08;
+    }
+    .glen-quote-block blockquote {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 300; color: #fff; line-height: 1.65; margin-bottom: 1.25rem;
+    }
+    .glen-quote-block .attr {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--glen-light);
+    }
+
+    /* ── Work nav ───────────────────────────────────────────── */
+    .work-nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 3rem 0; border-top: 1px solid var(--border);
+    }
+    .work-nav a { font-size: 0.875rem; font-weight: 500; }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .services-6 { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .case-hero { grid-template-columns: 1fr; min-height: auto; }
+      .case-hero-content { padding: 4rem 2rem 3rem; min-height: 65vw; }
+      .case-hero-image { height: 60vw; min-height: 280px; }
+      .outcomes-grid { grid-template-columns: 1fr 1fr; }
+      .photo-grid-3, .photo-grid-4 { grid-template-columns: 1fr 1fr; }
+      .photo-grid-2-1, .photo-grid-1-2 { grid-template-columns: 1fr; }
+      .store-grid { grid-template-columns: 1fr; }
+      .pr-image-wall { grid-template-columns: 1fr 1fr; }
+      .pr-image-wall .span-2 { grid-column: span 1; }
+      .meta-badge { display: none; }
+    }
+    @media (max-width: 640px) {
+      .services-6 { grid-template-columns: 1fr; }
+      .outcomes-grid { grid-template-columns: 1fr; }
+      .photo-grid-2, .photo-grid-3, .photo-grid-4 { grid-template-columns: 1fr; }
+      .store-images { grid-template-columns: 1fr 1fr; }
+      .pr-image-wall { grid-template-columns: 1fr; }
+      .pr-image-wall .span-2 { grid-column: span 1; }
+      .hero-stats { gap: 1.5rem; }
+      .case-meta-strip { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Astutely</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html" class="nav-cta">Start a project</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-content" style="padding-top: 0;">
+
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <div class="case-hero">
+    <div class="case-hero-content">
+      <a href="work.html" class="case-back-link">← All work</a>
+      <span class="case-hero-label">Web &amp; Digital · Sport</span>
+      <h1 data-wipe>Glentoran<br>FC</h1>
+      <p class="case-hero-sub">East Belfast's club, 140+ years in the making. A complete digital rebuild — website, superstore, systems, email, PR, and everything in between.</p>
+      <div class="hero-stats">
+        <div>
+          <span class="hero-stat-n">+41%</span>
+          <span class="hero-stat-l">Ticket sales</span>
+        </div>
+        <div>
+          <span class="hero-stat-n">3×</span>
+          <span class="hero-stat-l">GlensTV growth</span>
+        </div>
+        <div>
+          <span class="hero-stat-n">12mo+</span>
+          <span class="hero-stat-l">Ongoing partnership</span>
+        </div>
+      </div>
+    </div>
+    <div class="case-hero-image">
+      <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2026/03/Glentoran-Winner-2-copy-scaled.jpg" alt="Glentoran FC" />
+    </div>
+  </div>
+
+  <!-- ── Meta strip ───────────────────────────────────────── -->
+  <section style="padding: 0;">
+    <div class="container">
+      <div class="case-meta-strip">
+        <div class="case-meta-item">
+          <p>Client</p>
+          <p>Glentoran Football Club</p>
+        </div>
+        <div class="case-meta-item">
+          <p>Founded</p>
+          <p>1882, East Belfast</p>
+        </div>
+        <div class="case-meta-item">
+          <p>Services</p>
+          <p>Web, Superstore, Systems, Email, PR, Digital Screens</p>
+        </div>
+        <div class="case-meta-item">
+          <p>Duration</p>
+          <p>12 months+</p>
+        </div>
+        <div class="meta-badge">
+          <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/08/GFC_Badge-v2.png" alt="Glentoran FC badge" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The situation ────────────────────────────────────── -->
+  <section>
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <span class="label">The situation</span>
+          <h2 data-wipe>A great club. A digital footprint that hadn't kept up with it.</h2>
+        </div>
+        <div>
+          <p class="lead">Glentoran is one of Ireland's most decorated football clubs. Twenty-three league titles, a rebuilt stadium, a social partnership doing genuine community work across East Belfast. But their digital presence had grown without direction, and it showed.</p>
+          <p class="mt-sm">Fans looking for tickets ended up in the same navigation as commercial sponsors. Academy parents were buried under news articles. The mobile experience — where most of their audience lives — was an afterthought. GlensTV, their own streaming platform, was barely discoverable. Merchandise was sold through a system that had no connection to the physical till. There was no coherent email programme. PR was ad hoc. The club deserved better.</p>
+          <div class="glen-pull">
+            <p>"The brief: give the club a digital ecosystem that reflects what Glentoran actually is — not just a football team, but a community institution with 140 years of story."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stadium image full bleed ─────────────────────────── -->
+  <div class="full-bleed-img">
+    <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/08/gfc_Header_0001_d724021c-ca4f-4229-b106-8aafb84249c6.jpg" alt="The Oval, Glentoran FC" />
+  </div>
+
+  <!-- ── Match action grid ─────────────────────────────────── -->
+  <section style="padding-top: 0; padding-bottom: 0; background: var(--glen-black);">
+    <div class="container--wide" style="padding-top: 1.5rem; padding-bottom: 0;">
+      <div class="photo-grid-3">
+        <div class="img img--3-2" style="border-radius: 4px;">
+          <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2026/03/pe_00990494-scaled-e1773253719975.jpg" alt="Glentoran FC matchday" />
+        </div>
+        <div class="img img--3-2" style="border-radius: 4px;">
+          <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2026/03/100326-Bangor-v-Glentoran008-copy-2-e1773186823825.jpg" alt="Glentoran FC in action" />
+        </div>
+        <div class="img img--3-2" style="border-radius: 4px;">
+          <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/08/PMAKER-160825-Glentoran-v-Bangor-0006-3000x3000.jpg" alt="Glentoran v Bangor" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Second row of match photos -->
+  <section style="padding-top: 0; background: var(--glen-black);">
+    <div class="container--wide" style="padding-top: 0.75rem; padding-bottom: 2rem;">
+      <div class="photo-grid-2-1">
+        <div class="img img--wide img--overlay" style="border-radius: 4px;">
+          <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/08/gfc_Header_0001_d724021c-ca4f-4229-b106-8aafb84249c6.jpg" alt="Glentoran FC" />
+        </div>
+        <div class="img img--wide" style="border-radius: 4px; background: var(--glen-green); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+          <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/08/GFC_Badge-v2.png" alt="Glentoran FC badge" style="width: 55%; height: 55%; object-fit: contain; position: relative;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Problems we were brought in to solve ─────────────── -->
+  <section style="background: var(--grey);">
+    <div class="container">
+      <div class="grid-2" style="gap: 5rem; align-items: start;">
+        <div>
+          <span class="label">Why we were brought in</span>
+          <h2 data-wipe>A club running at full pace — with infrastructure that couldn't keep up.</h2>
+          <p class="lead" style="margin-top: 1.25rem;">Glentoran isn't a small club with a simple digital problem. It's a 140-year-old institution with a first team, a youth academy, a social partnership programme, a physical superstore, a streaming platform, commercial partners, and a supporter base that expects more every season.</p>
+          <p class="mt-sm">The problems weren't caused by neglect — they were caused by growth. Each part of the club had patched together its own systems and processes over time. Nobody had ever stepped back to look at the whole picture.</p>
+          <p class="mt-sm">That was the first thing we did.</p>
+        </div>
+        <div>
+          <div class="challenge-list">
+            <div class="challenge-item" data-reveal>
+              <span class="challenge-dot"></span>
+              <div>
+                <p class="challenge-title">Brand inconsistency</p>
+                <p class="challenge-desc">The club's visual identity hadn't evolved as the club had. Digital, print, stadium and merchandise all pulled in different directions.</p>
+              </div>
+            </div>
+            <div class="challenge-item" data-reveal>
+              <span class="challenge-dot"></span>
+              <div>
+                <p class="challenge-title">A website showing its age</p>
+                <p class="challenge-desc">51% of fans were on mobile. The site wasn't. Navigation mixed four completely different audiences into one structure with no logic.</p>
+              </div>
+            </div>
+            <div class="challenge-item" data-reveal>
+              <span class="challenge-dot"></span>
+              <div>
+                <p class="challenge-title">Retail running on spreadsheets</p>
+                <p class="challenge-desc">No online store worthy of the brand. Physical till and online stock had no connection. Reconciliation was a Monday morning manual job every single week.</p>
+              </div>
+            </div>
+            <div class="challenge-item" data-reveal>
+              <span class="challenge-dot"></span>
+              <div>
+                <p class="challenge-title">No EPOS, no QR, no reporting</p>
+                <p class="challenge-desc">No EPOS integration, no QR codes on products, no automated finance or admin reports. The backroom team was spending hours on data entry that should have been automatic.</p>
+              </div>
+            </div>
+            <div class="challenge-item" data-reveal>
+              <span class="challenge-dot"></span>
+              <div>
+                <p class="challenge-title">Email and marketing were ad hoc</p>
+                <p class="challenge-desc">No email programme. No Mailchimp setup. No analytics to measure what worked. Commercial partners had no data to justify their investment.</p>
+              </div>
+            </div>
+            <div class="challenge-item" data-reveal>
+              <span class="challenge-dot"></span>
+              <div>
+                <p class="challenge-title">PR was reactive, not strategic</p>
+                <p class="challenge-desc">No media relationships maintained. No crisis communications plan. Stories that deserved coverage went untold. Announcements landed without context or preparation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── What we did ──────────────────────────────────────── -->
+  <section class="glen-band">
+    <div class="container">
+      <span class="label">The response</span>
+      <h2 data-wipe style="max-width: 680px;">One partner. Six workstreams. Everything connected.</h2>
+      <p style="color: rgba(255,255,255,0.65); max-width: 640px; margin-top: 1rem; margin-bottom: 3.5rem; font-size: 0.95rem; line-height: 1.7;">Most clubs split this work across three or four agencies. Nothing joins up. We took the whole brief. Each workstream was designed to work with the others — because that's the only way the results compound.</p>
+      <div class="services-6">
+        <div class="svc-item" data-reveal>
+          <span class="svc-num">01</span>
+          <h3>Brand extension</h3>
+          <p class="svc-problem">The club had grown. The brand hadn't kept pace — inconsistent across digital, print, stadium signage and kit.</p>
+          <p class="svc-solution">We evolved the identity without erasing it. Updated typography, a disciplined colour system, and digital-first brand guidelines that brought every surface into alignment.</p>
+        </div>
+        <div class="svc-item" data-reveal>
+          <span class="svc-num">02</span>
+          <h3>Website rebuild</h3>
+          <p class="svc-problem">The site was dated, hard to navigate on mobile, and treated four completely different audiences — fans, commercial partners, academy families, community participants — as one.</p>
+          <p class="svc-solution">Ground-up rebuild, mobile-first. Separate user journeys for each audience. GlensTV elevated from buried sub-page to a front-and-centre fan benefit. Built on a CMS the club operates without us.</p>
+        </div>
+        <div class="svc-item" data-reveal>
+          <span class="svc-num">03</span>
+          <h3>Glentoran Superstore</h3>
+          <p class="svc-problem">No online store that reflected the club. Kit and merchandise had nowhere worth sending people. Commercial partners had nothing to point to.</p>
+          <p class="svc-solution">A brand-new Shopify superstore designed and built from scratch — glentoransuperstore.com. Kit launches, merchandise drops, and matchday essentials, in an experience the club is proud to promote.</p>
+        </div>
+        <div class="svc-item" data-reveal>
+          <span class="svc-num">04</span>
+          <h3>EPOS, stock &amp; reporting</h3>
+          <p class="svc-problem">Online and physical till were completely disconnected. Stock reconciliation was manual. No QR codes on products. Finance and admin reports took hours to assemble each week.</p>
+          <p class="svc-solution">Full EPOS integration — Shopify unified with the physical till in real time. QR codes on every product linking directly to the online store. Automated weekly finance and admin reports. Manual reconciliation: gone.</p>
+        </div>
+        <div class="svc-item" data-reveal>
+          <span class="svc-num">05</span>
+          <h3>Email, analytics &amp; screens</h3>
+          <p class="svc-problem">No email programme. No web analytics. No Mailchimp setup. No visibility into what was working — or evidence to share with commercial partners.</p>
+          <p class="svc-solution">Full Mailchimp programme with segmented audiences — fans, academy parents, partners, charity supporters, each receiving their own communications. GA4 analytics, Mailchimp reporting dashboards, and quarterly partner data packs. In-stadium screens covered too: matchday graphics, squad news, sponsor slots.</p>
+        </div>
+        <div class="svc-item" data-reveal>
+          <span class="svc-num">06</span>
+          <h3>PR, marketing &amp; crisis comms</h3>
+          <p class="svc-problem">PR was entirely reactive. No maintained media relationships, no crisis communications protocol, and no proactive story development. The club's community work was particularly under-told.</p>
+          <p class="svc-solution">Retained PR service — proactive story development, media relations, commercial announcement planning, signing coverage, community and charity programme stories. Full crisis communications protocol. Coverage in national and regional print, broadcast, and digital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Breadth callout ────────────────────────────────────── -->
+  <section style="background: var(--glen-green); padding: 4rem 0;">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p style="font-family: 'Source Serif 4', serif; font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 300; color: #fff; line-height: 1.6; margin-bottom: 1.25rem;">"Outside of putting eleven players on the pitch, there's very little Glentoran faces as a business that Astutely doesn't have a hand in."</p>
+        <p style="font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55);">12 months and counting</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Kit imagery ───────────────────────────────────────── -->
+  <section style="padding-top: 0; padding-bottom: 0; background: var(--glen-black);">
+    <div class="container--wide" style="padding-top: 0; padding-bottom: 0;">
+      <div class="photo-grid-4">
+        <div class="img img--3-2" style="border-radius: 0; background: #f0f0ee;">
+          <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/06/Home.png" alt="Glentoran home kit" style="object-fit: contain;" />
+        </div>
+        <div class="img img--3-2" style="border-radius: 0; background: #1a1a1a;">
+          <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/08/GFC_AWAY-KIT.png" alt="Glentoran away kit" style="object-fit: contain;" />
+        </div>
+        <div class="img img--3-2" style="border-radius: 0; background: #e8e8e8;">
+          <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/06/TrainingTop.png" alt="Glentoran training top" style="object-fit: contain;" />
+        </div>
+        <div class="img img--3-2" style="border-radius: 0; background: #f5f0e8;">
+          <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/06/Gilet.png" alt="Glentoran gilet" style="object-fit: contain;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Superstore section ────────────────────────────────── -->
+  <section class="superstore-band">
+    <div class="container">
+      <div class="superstore-logo">
+        <img src="https://glentoransuperstore.com/cdn/shop/files/GFC_SuperStre-Logo_e73db42b-4563-4945-b672-aa7d5cf9b291.png" alt="Glentoran Superstore" />
+        <span class="shopify-tag">Built on Shopify</span>
+      </div>
+      <div class="store-grid">
+        <div>
+          <span class="label">The superstore</span>
+          <h2 data-wipe style="max-width: 480px;">A proper retail experience. Online and in the ground.</h2>
+          <p class="lead" style="margin-top: 1rem;">The old merch setup wasn't built for a club at this scale. The online store was disconnected from the matchday till, inventory was managed manually, and kit launches had no proper destination.</p>
+          <p class="mt-sm">We built glentoransuperstore.com on Shopify — designed to match the club's brand identity, structured around kit and merchandise collections, and integrated with the physical till system so stock moves correctly across both channels. Kit drops now have a proper moment: email campaign, social content, digital screens, and a store page that does the product justice.</p>
+          <div class="mt-md">
+            <a href="https://glentoransuperstore.com" target="_blank" rel="noopener" class="btn btn-primary" style="background: var(--glen-green); border-color: var(--glen-green);">Visit the superstore →</a>
+          </div>
+        </div>
+        <div class="store-images">
+          <div class="img img--3-2" style="border-radius: 6px;">
+            <img src="https://glentoransuperstore.com/cdn/shop/files/KYA06222-HERO.jpg" alt="Glentoran Superstore" />
+          </div>
+          <div class="img img--3-2" style="border-radius: 6px;">
+            <img src="https://glentoransuperstore.com/cdn/shop/files/DSC08932.jpg" alt="Superstore merchandise" />
+          </div>
+          <div class="img img--3-2" style="border-radius: 6px; background: #f0f0ee;">
+            <img src="https://glentoransuperstore.com/cdn/shop/files/GFC_KL_Home-v2.webp" alt="Superstore homepage kit launch" style="object-fit: contain;" />
+          </div>
+          <div class="img img--3-2" style="border-radius: 6px; background: #111;">
+            <img src="https://glentoransuperstore.com/cdn/shop/files/GFC_TrainingKit.jpg" alt="Training kit launch" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Ops / till row ───────────────────────────────────────── -->
+  <section style="background: #f7f5f0; padding-top: 0;">
+    <div class="container">
+      <div class="grid-2" style="align-items: center; gap: 3rem;">
+        <div>
+          <span class="label" style="color: var(--glen-green);">Unified commerce</span>
+          <h3 style="font-size: clamp(1.2rem, 2vw, 1.6rem); margin-bottom: 1rem; color: var(--navy);">Online, till, and stock — one system.</h3>
+          <p>Before we got involved, the physical matchday till had no connection to the online store. Kit would sell out online while stock sat on the shelves, or vice versa. Staff were manually reconciling orders every Monday morning.</p>
+          <p class="mt-sm">We integrated the Shopify backend with the club's physical iPad-based POS — unifying online and in-store inventory in real time. Kit launches now flow from a single product source across digital screens, email, the website, and the till simultaneously.</p>
+        </div>
+        <div class="photo-grid-3" style="gap: 0.75rem;">
+          <div class="img img--3-2" style="border-radius: 6px;">
+            <img src="https://glentoransuperstore.com/cdn/shop/files/GFC_CHECKOUT_400.jpg" alt="Superstore checkout" />
+          </div>
+          <div class="img img--3-2" style="border-radius: 6px;">
+            <img src="https://glentoransuperstore.com/cdn/shop/files/GFC_MERCH_400_5d033283-9e87-49de-b66a-431d9f4a22c6.jpg" alt="Merchandise display" />
+          </div>
+          <div class="img img--3-2" style="border-radius: 6px;">
+            <img src="https://glentoransuperstore.com/cdn/shop/files/GFC_DELIVERY_400.jpg" alt="Order fulfilment" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Honours callout ──────────────────────────────────────── -->
+  <section style="background: var(--grey); padding: 3.5rem 0;">
+    <div class="container">
+      <div style="display: flex; gap: 0; flex-wrap: wrap; border: 1px solid var(--border); border-radius: 6px; overflow: hidden;">
+        <div style="flex: 1; min-width: 160px; padding: 2rem 2.5rem; border-right: 1px solid var(--border); text-align: center;">
+          <p style="font-family: 'Source Serif 4', serif; font-size: 2.8rem; font-weight: 300; color: var(--glen-green); line-height: 1; margin-bottom: 0.4rem;">23</p>
+          <p style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel);">League titles</p>
+        </div>
+        <div style="flex: 1; min-width: 160px; padding: 2rem 2.5rem; border-right: 1px solid var(--border); text-align: center;">
+          <p style="font-family: 'Source Serif 4', serif; font-size: 2.8rem; font-weight: 300; color: var(--glen-green); line-height: 1; margin-bottom: 0.4rem;">22</p>
+          <p style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel);">Irish Cups</p>
+        </div>
+        <div style="flex: 1; min-width: 160px; padding: 2rem 2.5rem; border-right: 1px solid var(--border); text-align: center;">
+          <p style="font-family: 'Source Serif 4', serif; font-size: 2.8rem; font-weight: 300; color: var(--glen-green); line-height: 1; margin-bottom: 0.4rem;">1882</p>
+          <p style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel);">Founded</p>
+        </div>
+        <div style="flex: 1; min-width: 160px; padding: 2rem 2.5rem; text-align: center;">
+          <p style="font-family: 'Source Serif 4', serif; font-size: 2.8rem; font-weight: 300; color: var(--glen-green); line-height: 1; margin-bottom: 0.4rem;">E1</p>
+          <p style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel);">European competition</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PR & Community section ────────────────────────────── -->
+  <section class="pr-band">
+    <div class="container">
+      <span class="label">PR &amp; Community</span>
+      <div class="grid-2" style="gap: 4rem; align-items: start;">
+        <div>
+          <h2 data-wipe>The club is more than football. The communications had to reflect that.</h2>
+          <p class="pr-lead" style="margin-top: 1.25rem;">Glentoran's social partnership programme does real, unglamorous community work in East Belfast — schools outreach, mental health support, youth programmes. Our PR brief was to make sure that story gets told, consistently, in the right places.</p>
+          <p class="mt-sm" style="color: rgba(255,255,255,0.7);">Commercial partnership announcements, kit launches, match milestones, charity campaigns, player signings — every moment now has a communications plan behind it. Media relationships built, stories placed, coverage tracked.</p>
+        </div>
+        <div class="pr-image-wall">
+          <div class="img img--3-2 span-2" style="border-radius: 4px;">
+            <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2026/03/Glentoran-FC-X-Strandtown-PS-1-scaled-e1773330886209.jpg" alt="Glentoran FC community partnership" />
+          </div>
+          <div class="img img--3-2" style="border-radius: 4px;">
+            <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2026/03/GFC-x-strangford-e1773220346849.jpg" alt="GFC x Strangford" />
+          </div>
+          <div class="img img--3-2" style="border-radius: 4px;">
+            <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2026/03/Glentoran-announce-Belfast-Self-Storage-partnership-1.jpg" alt="Commercial partnership announcement" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Email & screens callout ───────────────────────────── -->
+  <section style="background: var(--grey);">
+    <div class="container">
+      <div class="grid-2" style="align-items: center; gap: 4rem;">
+        <div>
+          <span class="label">Email &amp; digital screens</span>
+          <h2 data-wipe>Every channel. One consistent club voice.</h2>
+          <p class="lead" style="margin-top: 1rem;">Matchday email previews. Kit launch campaigns. Player signing announcements. Academy intake communications. Charity appeals.</p>
+          <p class="mt-sm">Each audience — first-team fans, academy parents, commercial partners, charity donors — receives communications designed specifically for them. In-stadium digital screens carry the same visual language: matchday graphics, squad numbers, sponsor slots, and live score formats that make The Oval feel like the professional environment it is.</p>
+        </div>
+        <div>
+          <div class="photo-grid-2" style="gap: 0.75rem;">
+            <div class="img img--3-2" style="border-radius: 6px;">
+              <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/10/bet-mclean-cup-e1760341556378.jpeg" alt="BetMcLean Cup" />
+            </div>
+            <div class="img img--3-2" style="border-radius: 6px;">
+              <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/04/Rectangle-53.jpg" alt="Glentoran FC" />
+            </div>
+            <div class="img img--3-2" style="border-radius: 6px; background: var(--glen-green); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2025/09/Homepage_Merch.png" alt="Merchandise" style="object-fit: cover; position: relative;" />
+            </div>
+            <div class="img img--3-2" style="border-radius: 6px;">
+              <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2026/03/Photo-09-03-2026-14-43-05-scaled-e1773066806902.jpg" alt="Glentoran FC news" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Outcomes ──────────────────────────────────────────── -->
+  <section>
+    <div class="container">
+      <span class="label">The outcomes</span>
+      <h2 data-wipe>Results that matter to a club, not just a dashboard.</h2>
+      <div class="outcomes-grid">
+        <div class="outcome-card" data-reveal>
+          <p class="stat-n">+41%</p>
+          <p>Increase in online ticket sales in the first full season post-launch.</p>
+        </div>
+        <div class="outcome-card" data-reveal>
+          <p class="stat-n">3×</p>
+          <p>GlensTV subscription growth following its repositioning as a fan-first platform.</p>
+        </div>
+        <div class="outcome-card" data-reveal>
+          <p class="stat-n">68%</p>
+          <p>of all site sessions now on mobile, up from 51%. The experience was built for it.</p>
+        </div>
+      </div>
+      <div class="glen-quote-block" data-reveal>
+        <blockquote>"Astutely understood from the first conversation that Glentoran is more than a football club. Everything they built reflects that. The site feels like us. The store feels like us. Everything does."</blockquote>
+        <p class="attr">Commercial Director, Glentoran FC</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Work nav ──────────────────────────────────────────── -->
+  <section style="padding-bottom: 0;">
+    <div class="container">
+      <div class="work-nav">
+        <a href="work.html">← Back to all work</a>
+        <a href="work-seacourt.html">Next project: Seacourt →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="container">
+      <span class="label label--light">Start a project</span>
+      <h2>Got a similar challenge?</h2>
+      <p>Tell us about it and we'll come back with an honest view on how we can help.</p>
+      <a href="contact.html" class="btn btn-white">Start the conversation</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Astutely</a>
+        <p>A digital agency building brand, web, marketing and systems on a foundation of clarity.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#brand">Brand &amp; Strategy</a></li>
+          <li><a href="services.html#web">Web Design &amp; Build</a></li>
+          <li><a href="services.html#marketing">Digital Marketing</a></li>
+          <li><a href="services.html#content">Content &amp; Creative</a></li>
+          <li><a href="services.html#systems">Systems &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="reset.html">The Reset</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Start</h5>
+        <ul>
+          <li><a href="contact.html">Start a project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Astutely. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camborne Town Council – Astutely Work</title>
+  <meta name="description" content="How Astutely rebuilt the digital presence for Camborne Town Council — Cornwall's largest parish, serving 23,000 residents." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="animations.js" defer></script>
+  <script src="cookies.js" defer></script>
+  <noscript><style>.hero-content > * { opacity: 1 !important; transform: none !important; } [data-reveal],[data-wipe] { opacity: 1 !important; transform: none !important; clip-path: none !important; }</style></noscript>
+  <style>
+    /* ── Camborne brand tokens ── */
+    :root {
+      --ctc-navy:  #00344c;
+      --ctc-dark:  #001d2b;
+      --ctc-red:   #e9322e;
+      --ctc-cream: #f2ebde;
+      --ctc-light: #7ab8d4;
+      --ctc-ink:   #001219;
+    }
+
+    /* ── Case hero ── */
+    .case-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+      overflow: hidden;
+    }
+    .case-hero-content {
+      background: var(--ctc-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 5rem 3.5rem 5rem max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+      position: relative;
+      overflow: hidden;
+    }
+    .case-hero-content::before {
+      content: '';
+      position: absolute;
+      bottom: -20px; right: -30px;
+      width: 340px; height: 340px;
+      background: url('https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/02/Clear-Graphic-CTC-Logo.png') center/contain no-repeat;
+      opacity: 0.06;
+      pointer-events: none;
+      filter: brightness(0) invert(1);
+    }
+    .case-hero-content::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--ctc-red);
+    }
+    .case-hero-image {
+      overflow: hidden;
+      position: relative;
+      background: var(--ctc-cream);
+    }
+    .case-hero-image .img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      aspect-ratio: unset; border-radius: 0;
+    }
+
+    /* ── Meta strip ── */
+    .case-meta-strip {
+      display: flex; gap: 3rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 3rem 0; flex-wrap: wrap; align-items: center;
+    }
+    .case-meta-item p:first-child {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--steel); margin-bottom: 0.3rem;
+    }
+    .case-meta-item p:last-child { font-size: 0.95rem; font-weight: 500; color: var(--navy); }
+    .case-meta-logo { margin-left: auto; }
+    .case-meta-logo img { height: 48px; width: auto; display: block; opacity: 0.8; }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      border-left: 3px solid var(--ctc-red);
+      padding-left: 1.75rem; margin: 2.5rem 0 0;
+    }
+    .pull-quote p {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 300; line-height: 1.65; color: var(--navy);
+    }
+
+    /* ── Photo grid cells ── */
+    .pg { overflow: hidden; border-radius: 4px; }
+    .pg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pg--sq   { aspect-ratio: 1/1; }
+    .pg--tall { aspect-ratio: 3/4; }
+    .pg--wide { aspect-ratio: 16/9; }
+    .pg--hero { aspect-ratio: 4/3; }
+    .pg--3-2  { aspect-ratio: 3/2; }
+    .pg--cin  { aspect-ratio: 21/9; }
+
+    /* ── Grid layouts ── */
+    .g2  { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
+    .g3  { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+    .g4  { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
+    .g-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; }
+    .g-1-2 { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; }
+    .g-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+    .mt-grid { margin-top: 1rem; }
+
+    /* ── Full-bleed ── */
+    .full-bleed-img { width: 100%; aspect-ratio: 21/8; overflow: hidden; }
+    .full-bleed-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ── Challenge list ── */
+    .challenge-list { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 2rem; }
+    .challenge-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding-bottom: 1.1rem; border-bottom: 1px solid var(--border);
+    }
+    .challenge-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .challenge-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--ctc-red); flex-shrink: 0; margin-top: 0.45rem;
+    }
+    .challenge-item p { font-size: 0.92rem; line-height: 1.6; margin: 0; color: var(--navy); }
+    .challenge-item strong { font-weight: 600; }
+
+    /* ── Service cards (dark band) ── */
+    .svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 3.5rem; }
+    .svc-card {
+      padding: 2.5rem 2rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .svc-num {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--ctc-light);
+      margin-bottom: 1.25rem; display: block;
+    }
+    .svc-card h3 { font-size: 1.05rem; font-weight: 600; color: #fff; margin-bottom: 1.25rem; line-height: 1.35; }
+    .svc-problem {
+      font-size: 0.84rem; line-height: 1.65; color: rgba(255,255,255,0.5);
+      font-style: italic; margin-bottom: 1rem; padding-top: 0.2rem;
+    }
+    .svc-problem::before {
+      content: 'Problem —'; display: block; font-style: normal;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ctc-red); margin-bottom: 0.4rem;
+    }
+    .svc-solution {
+      font-size: 0.88rem; line-height: 1.65; color: rgba(255,255,255,0.78);
+      padding-top: 0.2rem;
+    }
+    .svc-solution::before {
+      content: 'Response —'; display: block;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ctc-light); margin-bottom: 0.4rem;
+    }
+
+    /* ── Town Deal project cards ── */
+    .project-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
+    .project-card {
+      padding: 2rem;
+      background: var(--ctc-cream);
+      border-radius: 6px;
+      border-top: 3px solid var(--ctc-navy);
+    }
+    .project-card img { height: 52px; width: auto; margin-bottom: 1.25rem; display: block; }
+    .project-card h3 { font-size: 1rem; font-weight: 600; color: var(--ctc-navy); margin-bottom: 0.6rem; }
+    .project-card p { font-size: 0.85rem; line-height: 1.65; color: var(--mid-grey); margin: 0; }
+
+    /* ── Breadth callout ── */
+    .breadth-callout { background: var(--ctc-navy); padding: 5rem 0; }
+    .breadth-callout p {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      font-weight: 300; color: #fff; line-height: 1.55; max-width: 820px;
+    }
+    .breadth-callout em { font-style: italic; color: var(--ctc-light); }
+    .breadth-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--ctc-light);
+      margin-bottom: 1.5rem; display: block;
+    }
+
+    /* ── Outcomes ── */
+    .outcomes-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+    .outcome-card {
+      padding: 2.25rem 2rem;
+      border-top: 3px solid var(--ctc-red);
+      background: var(--ctc-cream);
+      border-radius: 0 0 6px 6px;
+    }
+    .outcome-card .stat-n {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;
+      color: var(--ctc-navy); line-height: 1; margin-bottom: 0.4rem;
+    }
+    .outcome-card p { font-size: 0.875rem; line-height: 1.6; }
+
+    /* ── Quote block ── */
+    .quote-block {
+      background: var(--ctc-ink); padding: 5rem 0;
+      position: relative; overflow: hidden;
+    }
+    .quote-block::before {
+      content: '';
+      position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
+      width: 480px; height: 480px;
+      background: url('https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/02/Clear-Graphic-CTC-Logo.png') center/contain no-repeat;
+      filter: brightness(0) invert(1);
+      opacity: 0.04; pointer-events: none;
+    }
+    .quote-block blockquote {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 300;
+      color: #fff; line-height: 1.65; max-width: 760px; margin-bottom: 1.5rem;
+    }
+    .quote-attr {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--ctc-light);
+    }
+
+    /* ── Facts strip ── */
+    .facts-strip { background: var(--ctc-dark); padding: 3.5rem 0; }
+    .facts-strip .stat-n {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 300;
+      color: var(--ctc-light); line-height: 1; margin-bottom: 0.4rem;
+    }
+    .facts-strip .stat-l {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+    }
+
+    /* ── Work nav ── */
+    .work-nav {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 3rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .work-nav a { font-size: 0.875rem; font-weight: 500; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1000px) {
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .project-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .case-hero { grid-template-columns: 1fr; min-height: auto; }
+      .case-hero-content { padding: 4rem 2rem 3rem; min-height: 50vh; }
+      .case-hero-image { height: 55vw; min-height: 280px; }
+      .g4, .g-strip { grid-template-columns: repeat(2,1fr); }
+      .outcomes-grid { grid-template-columns: 1fr 1fr; }
+      .full-bleed-img { aspect-ratio: 16/7; }
+    }
+    @media (max-width: 640px) {
+      .g3 { grid-template-columns: 1fr 1fr; }
+      .g2, .g-2-1, .g-1-2 { grid-template-columns: 1fr; }
+      .svc-grid, .project-grid { grid-template-columns: 1fr; }
+      .outcomes-grid { grid-template-columns: 1fr; }
+      .case-meta-logo { margin-left: 0; }
+      .full-bleed-img { aspect-ratio: 4/3; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Astutely</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html" class="nav-cta">Start a project</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-content">
+
+  <!-- ── HERO ── -->
+  <div class="case-hero">
+    <div class="case-hero-content">
+      <a href="work.html" style="font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:2.5rem;text-decoration:none;">← All work</a>
+      <span class="label" style="color:var(--ctc-light);border-color:rgba(255,255,255,0.15);">Web &amp; Digital · Local Government</span>
+      <h1 style="font-size:clamp(2rem,4.5vw,3.8rem);margin:1rem 0 1.5rem;color:#fff;line-height:1.1;" data-wipe>Camborne<br>Town Council</h1>
+      <p style="font-size:clamp(0.95rem,1.4vw,1.1rem);color:rgba(255,255,255,0.72);line-height:1.7;max-width:420px;">A new digital presence for Cornwall's largest parish — 23,000 residents, 18 councillors, and a town with a great deal happening in it.</p>
+    </div>
+    <div class="case-hero-image">
+      <div class="img img--overlay">
+        <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/04/PEB-Edited-scaled.jpg" alt="Passmore Edwards Building — Camborne Town Council offices" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ── META STRIP ── -->
+  <section style="padding:0;">
+    <div class="container">
+      <div class="case-meta-strip">
+        <div class="case-meta-item">
+          <p>Client</p>
+          <p>Camborne Town Council</p>
+        </div>
+        <div class="case-meta-item">
+          <p>Location</p>
+          <p>Camborne, Cornwall</p>
+        </div>
+        <div class="case-meta-item">
+          <p>Services</p>
+          <p>Web Design &amp; Build, Content Architecture, Digital Accessibility</p>
+        </div>
+        <div class="case-meta-item">
+          <p>Sector</p>
+          <p>Local Government &amp; Public Sector</p>
+        </div>
+        <div class="case-meta-logo">
+          <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/02/Clear-Graphic-CTC-Logo.png" alt="Camborne Town Council logo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SITUATION ── -->
+  <section>
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <span class="label">The situation</span>
+          <h2 data-wipe>Cornwall's largest parish. A town with serious momentum. A website that wasn't keeping pace with any of it.</h2>
+        </div>
+        <div>
+          <p class="lead">Camborne is geographically the largest parish in Cornwall — nearly 23,000 residents, 18 elected councillors, six managed green spaces, a library, a packed events calendar, and £23.7 million in Town Deal funding actively transforming the town.</p>
+          <p class="mt-sm">Trevithick Day draws tens of thousands. The Great Big Green Fest fills the recreation ground every summer. The council runs programmes for youth, the environment, allotments, community safety, and Fairtrade. And it does all of this from the striking Passmore Edwards Building — a Victorian civic landmark that has housed local democracy since 1985.</p>
+          <p class="mt-sm">The old website served none of that ambition. Static, hard to navigate, and unable to communicate to the diverse range of people who needed to interact with it — residents, businesses, community groups, press, funders, and visitors to the town.</p>
+          <div class="pull-quote mt-sm">
+            <p>"Listen, Improve, Achieve. The council knew what it stood for. The website just wasn't saying it."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FULL BLEED — Trevithick Day ── -->
+  <div class="full-bleed-img">
+    <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/04/2F7A0148.jpg" alt="Trevithick Day steam parade through Camborne town centre" />
+  </div>
+
+  <!-- ── THE TOWN ── -->
+  <section>
+    <div class="container">
+      <span class="label">The town in full</span>
+      <h2 data-wipe style="max-width:600px;margin-bottom:0.75rem;">A community with real life in it — and a digital presence to match.</h2>
+      <p style="max-width:620px;color:var(--steel);margin-bottom:2.5rem;">Events, governance, parks, projects, history — all of it needed a home that could communicate clearly to residents, visitors, funders, and press.</p>
+    </div>
+    <div class="container--wide">
+      <!-- Row 1: big aerial + 2-stack -->
+      <div class="g-2-1">
+        <div class="pg pg--wide">
+          <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/03/Stage-and-Crowd-scaled.jpg" alt="Green Fest aerial — stage and crowd in Camborne recreation ground" />
+        </div>
+        <div style="display:grid;grid-template-rows:1fr 1fr;gap:1rem;">
+          <div class="pg pg--sq">
+            <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/03/2F7A0233.jpg" alt="Trevithick Day — steam engine and crowd outside the council building" />
+          </div>
+          <div class="pg pg--sq">
+            <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/05/IMG_5660-scaled.jpg" alt="Trevithick Day — Bal Maidens dancers and brass band" />
+          </div>
+        </div>
+      </div>
+      <!-- Row 2: three across -->
+      <div class="g3 mt-grid">
+        <div class="pg pg--3-2">
+          <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/04/2F7A0148.jpg" alt="Trevithick Day street parade" />
+        </div>
+        <div class="pg pg--3-2">
+          <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/05/Robert-Gough-May-2024_9766-scaled-e1715616245835.jpg" alt="Annual Assembly — Mayor addressing the council chamber" />
+        </div>
+        <div class="pg pg--3-2">
+          <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/02/354670509_247215157944487_4283875620835201304_n.jpg" alt="Great Big Green Fest" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY WE WERE BROUGHT IN ── -->
+  <section style="background:var(--grey);">
+    <div class="container">
+      <div class="grid-2" style="align-items:start;gap:4rem;">
+        <div>
+          <span class="label">Why we were brought in</span>
+          <h2 data-wipe style="margin-bottom:1.25rem;">A public sector website serves everyone — or it fails everyone.</h2>
+          <p>A town council website has an unusual brief: it must work equally well for a 70-year-old resident checking bin collection days, a journalist covering the mayor, a parent looking for summer holiday activities, a business applying for a grant, and a Cornwall Council officer reviewing planning responses.</p>
+          <p class="mt-sm">Serving all of them through a single site — accessibly, clearly, and without making anyone feel like they've landed in the wrong place — demands careful content architecture and a platform that can handle complexity without showing it.</p>
+        </div>
+        <div>
+          <div class="challenge-list">
+            <div class="challenge-item">
+              <div class="challenge-dot"></div>
+              <p><strong>Too many audiences, one undifferentiated front door.</strong> Residents, visitors, businesses, community groups, funders, press, and councillors all arriving at the same homepage with no clear path to what they needed.</p>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-dot"></div>
+              <p><strong>Accessibility requirements unmet.</strong> As a public body, Camborne TC has legal obligations under WCAG accessibility standards. The old site fell short — and risked excluding the very residents most in need of council services.</p>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-dot"></div>
+              <p><strong>£23.7m Town Deal projects with no proper digital home.</strong> Three major regeneration projects — AWENVA, Park Gerry, and Holman Gardens — needed visibility, progress updates, and public engagement that a static site couldn't support.</p>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-dot"></div>
+              <p><strong>Events generating 60,000+ views with nowhere to land.</strong> Trevithick Day footage went viral on social media. That traffic had no quality destination — nothing to convert curiosity into civic engagement or repeat visits.</p>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-dot"></div>
+              <p><strong>Governance transparency hard to find.</strong> Council minutes, budget summaries, planning decisions, committee reports — all required by law to be publicly accessible, none of them easy to locate.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT WE DID ── -->
+  <section style="background:var(--ctc-ink);padding:5rem 0;">
+    <div class="container">
+      <span class="label" style="color:var(--ctc-light);">What we did</span>
+      <h2 style="color:#fff;max-width:680px;margin-bottom:0;" data-wipe>A website structured around people — not around how the council organises itself internally.</h2>
+      <div class="svc-grid">
+
+        <div class="svc-card" data-reveal>
+          <span class="svc-num">01</span>
+          <h3>Website redesign &amp; rebuild</h3>
+          <p class="svc-problem">The existing site was static, undifferentiated, and unable to reflect the energy or ambition of a council managing six parks, a library, multiple events programmes, and £23.7m of regeneration work simultaneously.</p>
+          <p class="svc-solution">A fully rebuilt WordPress site with a content system the council team can manage confidently — no developer required. Clean, modern, and built to reflect the character of the town: accessible, civic, and proud of Camborne's history. Structured so that residents find what they need in seconds and funders see the full picture of what the council delivers.</p>
+        </div>
+
+        <div class="svc-card" data-reveal>
+          <span class="svc-num">02</span>
+          <h3>Content architecture &amp; navigation</h3>
+          <p class="svc-problem">Five distinct audiences sharing one navigation structure meant nobody found what they needed quickly. The site was organised around how the council worked, not around how residents and visitors think.</p>
+          <p class="svc-solution">A rethought information architecture with clear audience pathways: residents, businesses, community groups, visitors, and the governance/transparency section for press and funders. Events, news, parks, governance, services, and opportunities all given clear homes with logical hierarchy. Designed to scale as the council's activity continues to grow.</p>
+        </div>
+
+        <div class="svc-card" data-reveal>
+          <span class="svc-num">03</span>
+          <h3>Accessibility &amp; digital inclusion</h3>
+          <p class="svc-problem">Public sector websites are required to meet WCAG 2.1 AA standards. The old site didn't meet them — creating a legal risk and, more importantly, excluding the residents who most need access to council services.</p>
+          <p class="svc-solution">Full WCAG 2.1 AA compliance built into the redesign from the start. Integration of the Recite Me assistive toolbar — providing screen reader support, text customisation, translation tools, and reading aids directly in the browser. Bilingual English/Cornish content supported throughout. The most accessible council website in the area.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TOWN DEAL PROJECTS ── -->
+  <section style="background:var(--ctc-cream);">
+    <div class="container">
+      <span class="label" style="color:var(--ctc-navy);">£23.7 million Town Deal</span>
+      <h2 data-wipe style="max-width:640px;margin-bottom:0.75rem;">Three major regeneration projects — each one needed its own digital presence within the site.</h2>
+      <p style="max-width:620px;color:var(--steel);margin-bottom:0;">The Camborne Town Deal is one of the largest investments in the town's history. The council's three projects needed their own pages: explaining the vision, tracking progress, and giving residents a place to engage with what's being built in their town.</p>
+      <div class="project-grid">
+        <div class="project-card" data-reveal>
+          <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2025/03/CTC-Project-Logos-copy-01-scaled.jpg" alt="AWENVA project" />
+          <h3>AWENVA</h3>
+          <p>Converting The Basset Centre and White House into a vibrant community hub — arts, wellbeing, enterprise, and community in one building in the heart of Camborne.</p>
+        </div>
+        <div class="project-card" data-reveal>
+          <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/07/CTC-Project-Logos-02.jpg" alt="Park Gerry project" />
+          <h3>Park Gerry Community Fields</h3>
+          <p>Transforming underutilised playing fields into a community hub for play, sport and leisure — with new facilities designed around what residents actually asked for.</p>
+        </div>
+        <div class="project-card" data-reveal>
+          <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2025/03/CTC-Project-Logos-copy-03-1-scaled.jpg" alt="Holman Gardens project" />
+          <h3>Holman Gardens</h3>
+          <p>A brownfield site transformed into an attractive gateway to the town centre — public garden, amphitheatre, walking paths, and seating for community events.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BREADTH CALLOUT ── -->
+  <div class="breadth-callout">
+    <div class="container">
+      <span class="breadth-label">The scope</span>
+      <p>From a resident checking bin days to a journalist covering the mayor's speech, from a funder reviewing the council's impact to a parent signing up for a Trevithick Day event — <em>the same website has to serve all of them</em>, on any device, in any language, with any level of visual or cognitive ability.</p>
+    </div>
+  </div>
+
+  <!-- ── EVENTS PHOTOGRAPHY ── -->
+  <section>
+    <div class="container">
+      <span class="label">A town worth visiting — now with the digital presence to prove it</span>
+      <h2 data-wipe style="max-width:600px;margin-bottom:2.5rem;">Trevithick Day. Green Fest. The Annual Assembly. The council runs a packed civic calendar.</h2>
+    </div>
+    <div class="container--wide">
+      <div class="g-strip">
+        <div class="pg" style="aspect-ratio:1/1;border-radius:0;">
+          <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/04/PEB-Edited-scaled.jpg" alt="Passmore Edwards Building" />
+        </div>
+        <div class="pg" style="aspect-ratio:1/1;border-radius:0;">
+          <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/03/2F7A0233.jpg" alt="Trevithick Day crowds" />
+        </div>
+        <div class="pg" style="aspect-ratio:1/1;border-radius:0;">
+          <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/05/IMG_5660-scaled.jpg" alt="Bal Maidens dancers" />
+        </div>
+        <div class="pg" style="aspect-ratio:1/1;border-radius:0;">
+          <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/05/Robert-Gough-May-2024_9766-scaled-e1715616245835.jpg" alt="Annual Assembly" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FACTS STRIP ── -->
+  <div class="facts-strip">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:2rem;text-align:center;">
+        <div>
+          <p class="stat-n">23K</p>
+          <p class="stat-l">Residents</p>
+        </div>
+        <div>
+          <p class="stat-n">18</p>
+          <p class="stat-l">Elected councillors</p>
+        </div>
+        <div>
+          <p class="stat-n">£23.7m</p>
+          <p class="stat-l">Town Deal funding</p>
+        </div>
+        <div>
+          <p class="stat-n">6</p>
+          <p class="stat-l">Parks &amp; green spaces</p>
+        </div>
+        <div>
+          <p class="stat-n">1985</p>
+          <p class="stat-l">Founded</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── OUTCOMES ── -->
+  <section>
+    <div class="container">
+      <span class="label">The outcomes</span>
+      <h2 data-wipe>A website that serves the public — and reflects the ambition of the council delivering for them.</h2>
+      <div class="outcomes-grid">
+        <div class="outcome-card" data-reveal>
+          <p class="stat-n">WCAG AA</p>
+          <p>Full accessibility compliance achieved — the most accessible council website in the area, with Recite Me assistive tools integrated for every visitor.</p>
+        </div>
+        <div class="outcome-card" data-reveal>
+          <p class="stat-n">60K+</p>
+          <p>Views of Trevithick Day content in 2024 — now with a quality destination site to convert that audience into engaged residents and repeat visitors.</p>
+        </div>
+        <div class="outcome-card" data-reveal>
+          <p class="stat-n">3 projects</p>
+          <p>Town Deal projects each given dedicated, regularly updated pages — giving residents visibility of how £23.7m is being invested in their town.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QUOTE ── -->
+  <div class="quote-block">
+    <div class="container">
+      <blockquote>"We needed a website that could do justice to everything Camborne is and everything we're working to make it. Astutely built something we're genuinely proud to point people to."</blockquote>
+      <p class="quote-attr">Camborne Town Council</p>
+    </div>
+  </div>
+
+  <!-- ── WORK NAV ── -->
+  <section style="padding-bottom:0;">
+    <div class="container">
+      <div class="work-nav">
+        <a href="work-kbi.html">← Previous: Kickboxing Ireland</a>
+        <a href="work-glentoran.html">See also: Glentoran FC →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="container">
+      <span class="label label--light">Start a project</span>
+      <h2>Got a similar challenge?</h2>
+      <p>Tell us about it and we'll come back with an honest view on how we can help.</p>
+      <a href="contact.html" class="btn btn-white">Start the conversation</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Astutely</a>
+        <p>A digital agency building brand, web, marketing and systems on a foundation of clarity.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#brand">Brand &amp; Strategy</a></li>
+          <li><a href="services.html#web">Web Design &amp; Build</a></li>
+          <li><a href="services.html#marketing">Digital Marketing</a></li>
+          <li><a href="services.html#content">Content &amp; Creative</a></li>
+          <li><a href="services.html#systems">Systems &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="reset.html">The Reset</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Start</h5>
+        <ul>
+          <li><a href="contact.html">Start a project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Astutely. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

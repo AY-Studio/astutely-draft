@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services – Astutely Digital Agency</title>
+  <meta name="description" content="Brand, web design, digital marketing, content and systems. Astutely's full range of digital services." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="animations.js" defer></script>
+  <script src="cookies.js" defer></script>
+  <noscript><style>.hero-content > * { opacity: 1 !important; transform: none !important; } [data-reveal],[data-wipe] { opacity: 1 !important; transform: none !important; clip-path: none !important; }</style></noscript>
+  <style>
+    .service-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .service-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-bottom: 3.5rem;
+    }
+    .service-intro-text { }
+    .service-intro-text h2 { margin-bottom: 1rem; }
+    .service-intro-text .lead { margin-bottom: 1.5rem; }
+    .service-deliverables {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .deliverable-tag {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      background: var(--grey);
+      border-radius: 3px;
+      color: var(--dark-grey);
+    }
+    .service-image-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+    }
+    .service-image-row--3 {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (max-width: 900px) {
+      .service-intro { grid-template-columns: 1fr; gap: 2rem; }
+      .service-image-row { grid-template-columns: 1fr 1fr; }
+      .service-image-row--3 { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .service-image-row,
+      .service-image-row--3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Astutely</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html" class="nav-cta">Start a project</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-content">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="label">Services</span>
+      <h1>Everything a growing<br>company needs, digitally.</h1>
+      <p class="lead" style="margin-top: 1.25rem;">We offer a complete range of digital services, from brand strategy through to web build, marketing, content and the operational systems that hold it all together.</p>
+    </div>
+  </section>
+
+  <!-- Brand & Strategy -->
+  <div id="brand" class="service-section s-num" data-n="01">
+    <div class="container">
+      <div class="service-intro">
+        <div class="service-intro-text" data-reveal>
+          <span class="label">Brand &amp; Strategy</span>
+          <h2 data-wipe>The foundation everything else is built on.</h2>
+          <p class="lead">A strong brand isn't a logo and a colour palette. It's a clear position in the market, a compelling narrative, and a set of principles that guide every decision your business makes.</p>
+          <p>We work with founding teams and leadership to develop the brand thinking that makes every downstream investment in web, marketing and creative significantly more effective.</p>
+          <div class="service-deliverables">
+            <span class="deliverable-tag">Brand positioning</span>
+            <span class="deliverable-tag">Brand identity &amp; guidelines</span>
+            <span class="deliverable-tag">Messaging framework</span>
+            <span class="deliverable-tag">Naming</span>
+            <span class="deliverable-tag">Tone of voice</span>
+            <span class="deliverable-tag">Brand narrative</span>
+            <span class="deliverable-tag">The Astutely Reset</span>
+          </div>
+          <div class="mt-md">
+            <a href="contact.html" class="btn btn-primary">Discuss a brand project</a>
+          </div>
+        </div>
+        <div>
+          <!-- Main image -->
+          <div class="img img--portrait" style="border-radius: 6px;">
+            <!-- <img src="images/services/brand-main.jpg" alt="Brand work" /> -->
+          </div>
+        </div>
+      </div>
+      <!-- Supporting image row -->
+      <div class="service-image-row--3" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+        <div class="img img--square" style="border-radius: 4px;"><!-- <img src="images/services/brand-1.jpg" alt="" /> --></div>
+        <div class="img img--square" style="border-radius: 4px;"><!-- <img src="images/services/brand-2.jpg" alt="" /> --></div>
+        <div class="img img--square" style="border-radius: 4px;"><!-- <img src="images/services/brand-3.jpg" alt="" /> --></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Web Design & Build -->
+  <div id="web" class="service-section s-num" data-n="02">
+    <div class="container">
+      <div class="service-intro">
+        <div class="service-intro-text" data-reveal>
+          <span class="label">Web Design &amp; Build</span>
+          <h2 data-wipe>Websites that perform as well as they look.</h2>
+          <p class="lead">We design and build websites that communicate clearly, convert effectively, and give your team the control they need to keep them performing over time.</p>
+          <p>From marketing sites and landing pages to full web applications and e-commerce, we work across CMS platforms and custom builds, with a consistent focus on performance, usability and brand.</p>
+          <div class="service-deliverables">
+            <span class="deliverable-tag">UX &amp; wireframing</span>
+            <span class="deliverable-tag">Visual design</span>
+            <span class="deliverable-tag">CMS build (WordPress, Webflow, Shopify)</span>
+            <span class="deliverable-tag">Custom development</span>
+            <span class="deliverable-tag">E-commerce</span>
+            <span class="deliverable-tag">Landing pages</span>
+            <span class="deliverable-tag">Ongoing support</span>
+          </div>
+          <div class="mt-md">
+            <a href="contact.html" class="btn btn-primary">Discuss a web project</a>
+          </div>
+        </div>
+        <div>
+          <div class="img img--portrait" style="border-radius: 6px;">
+            <!-- <img src="images/services/web-main.jpg" alt="Web design work" /> -->
+          </div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem;">
+        <div class="img img--wide" style="border-radius: 4px;"><!-- <img src="images/services/web-1.jpg" alt="" /> --></div>
+        <div class="img img--wide" style="border-radius: 4px;"><!-- <img src="images/services/web-2.jpg" alt="" /> --></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Digital Marketing -->
+  <div id="marketing" class="service-section s-num" data-n="03">
+    <div class="container">
+      <div class="service-intro">
+        <div class="service-intro-text" data-reveal>
+          <span class="label">Digital Marketing</span>
+          <h2 data-wipe>Marketing built around a clear story, not just a budget.</h2>
+          <p class="lead">We plan and run digital marketing programmes that start with your positioning and work outward, ensuring every channel, campaign and piece of content serves a coherent strategy.</p>
+          <p>That means stronger returns on media spend, more consistent brand experience across channels, and marketing that compounds over time rather than starting from zero with each campaign.</p>
+          <div class="service-deliverables">
+            <span class="deliverable-tag">SEO strategy &amp; execution</span>
+            <span class="deliverable-tag">Paid search &amp; social (PPC)</span>
+            <span class="deliverable-tag">Content strategy</span>
+            <span class="deliverable-tag">Email marketing</span>
+            <span class="deliverable-tag">Marketing audits</span>
+            <span class="deliverable-tag">Performance reporting</span>
+            <span class="deliverable-tag">Marketing architecture</span>
+          </div>
+          <div class="mt-md">
+            <a href="contact.html" class="btn btn-primary">Discuss a marketing project</a>
+          </div>
+        </div>
+        <div>
+          <div class="img img--portrait" style="border-radius: 6px;">
+            <!-- <img src="images/services/marketing-main.jpg" alt="Digital marketing" /> -->
+          </div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+        <div class="img img--3-2" style="border-radius: 4px;"><!-- <img src="images/services/marketing-1.jpg" alt="" /> --></div>
+        <div class="img img--3-2" style="border-radius: 4px;"><!-- <img src="images/services/marketing-2.jpg" alt="" /> --></div>
+        <div class="img img--3-2" style="border-radius: 4px;"><!-- <img src="images/services/marketing-3.jpg" alt="" /> --></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content & Creative -->
+  <div id="content" class="service-section">
+    <div class="container">
+      <div class="service-intro">
+        <div class="service-intro-text" data-reveal>
+          <span class="label">Content &amp; Creative</span>
+          <h2 data-wipe>Creative that communicates your value, not just your aesthetic.</h2>
+          <p class="lead">Photography, video, copywriting and campaign creative, produced with the clarity of message that makes the work actually perform.</p>
+          <p>We produce content that's built around your narrative and designed to work across your channels. Not generic assets. Content with a clear purpose and a clear audience.</p>
+          <div class="service-deliverables">
+            <span class="deliverable-tag">Photography direction &amp; production</span>
+            <span class="deliverable-tag">Video &amp; motion</span>
+            <span class="deliverable-tag">Copywriting</span>
+            <span class="deliverable-tag">Campaign creative</span>
+            <span class="deliverable-tag">Social content</span>
+            <span class="deliverable-tag">Brand films</span>
+            <span class="deliverable-tag">Annual reports</span>
+          </div>
+          <div class="mt-md">
+            <a href="contact.html" class="btn btn-primary">Discuss a creative project</a>
+          </div>
+        </div>
+        <div>
+          <div class="img img--portrait" style="border-radius: 6px;">
+            <!-- <img src="images/services/creative-main.jpg" alt="Creative work" /> -->
+          </div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="img img--3-2" style="border-radius: 4px;"><!-- <img src="images/services/creative-1.jpg" alt="" /> --></div>
+        <div class="img img--3-2" style="border-radius: 4px;"><!-- <img src="images/services/creative-2.jpg" alt="" /> --></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Systems & Automation -->
+  <div id="systems" class="service-section" style="border-bottom: none;">
+    <div class="container">
+      <div class="service-intro">
+        <div class="service-intro-text" data-reveal>
+          <span class="label">Systems &amp; Automation</span>
+          <h2 data-wipe>The operational backbone that makes growth scalable.</h2>
+          <p class="lead">As companies grow, their tools multiply. Without the right architecture, your systems start working against you: duplicating data, obscuring insight, creating friction at exactly the wrong moments.</p>
+          <p>We design and implement the CRM, automation and reporting infrastructure that makes marketing and sales coherent, measurable and scalable. Not just the tools, but the thinking behind how they connect.</p>
+          <div class="service-deliverables">
+            <span class="deliverable-tag">CRM selection &amp; implementation</span>
+            <span class="deliverable-tag">Marketing automation</span>
+            <span class="deliverable-tag">Reporting &amp; dashboards</span>
+            <span class="deliverable-tag">Tool audit &amp; consolidation</span>
+            <span class="deliverable-tag">Data architecture</span>
+            <span class="deliverable-tag">Workflow design</span>
+          </div>
+          <div class="mt-md">
+            <a href="contact.html" class="btn btn-primary">Discuss a systems project</a>
+          </div>
+        </div>
+        <div>
+          <div class="img img--portrait" style="border-radius: 6px;">
+            <!-- <img src="images/services/systems-main.jpg" alt="Systems work" /> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="container">
+      <span class="label label--light">Work with us</span>
+      <h2>Not sure where to start?</h2>
+      <p>Most of our best projects began with a conversation about what wasn't working. Tell us what's happening and we'll give you an honest view on where to begin.</p>
+      <a href="contact.html" class="btn btn-white">Start the conversation</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Astutely</a>
+        <p>A digital agency building brand, web, marketing and systems on a foundation of clarity.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#brand">Brand &amp; Strategy</a></li>
+          <li><a href="services.html#web">Web Design &amp; Build</a></li>
+          <li><a href="services.html#marketing">Digital Marketing</a></li>
+          <li><a href="services.html#content">Content &amp; Creative</a></li>
+          <li><a href="services.html#systems">Systems &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="reset.html">The Reset</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Start</h5>
+        <ul>
+          <li><a href="contact.html">Start a project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Astutely. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

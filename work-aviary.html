@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Aviary Floral – Astutely Work</title>
+  <meta name="description" content="How Astutely launched The Aviary Floral — brand identity, photography and website for a new floral studio from zero to fully booked in one season." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="animations.js" defer></script>
+  <script src="cookies.js" defer></script>
+  <noscript><style>.hero-content > * { opacity: 1 !important; transform: none !important; } [data-reveal],[data-wipe] { opacity: 1 !important; transform: none !important; clip-path: none !important; }</style></noscript>
+  <style>
+    /* ── Aviary brand tokens ── */
+    :root {
+      --avi-dark:  #1C3A45;
+      --avi-teal:  #234755;
+      --avi-warm:  #b98c79;
+      --avi-light: #e4bfac;
+      --avi-cream: #f4f3f1;
+      --avi-ink:   #131E23;
+    }
+
+    /* ── Case hero ── */
+    .case-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+      overflow: hidden;
+    }
+    .case-hero-content {
+      background: var(--avi-ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 5rem 3.5rem 5rem max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+      position: relative;
+      overflow: hidden;
+    }
+    .case-hero-content::before {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 480px; height: 480px;
+      background: url('https://theaviaryfloral.com/cdn/shop/files/TheAviaryLogo_6fff1a4d-7480-47d3-9685-879682399d90_300x.png?v=1663012967') center/contain no-repeat;
+      filter: invert(1);
+      opacity: 0.045;
+      pointer-events: none;
+    }
+    .case-hero-content::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--avi-warm);
+    }
+    .case-hero-image {
+      overflow: hidden;
+      position: relative;
+      background: var(--avi-cream);
+    }
+    .case-hero-image .img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      aspect-ratio: unset;
+      border-radius: 0;
+    }
+
+    /* ── Meta strip ── */
+    .case-meta-strip {
+      display: flex;
+      gap: 3rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 3rem 0;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    .case-meta-item p:first-child {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 0.3rem;
+    }
+    .case-meta-item p:last-child {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+    .case-meta-logo { margin-left: auto; }
+    .case-meta-logo img { height: 44px; width: auto; display: block; opacity: 0.85; }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      border-left: 3px solid var(--avi-warm);
+      padding-left: 1.75rem;
+      margin: 2.5rem 0 0;
+    }
+    .pull-quote p {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--navy);
+    }
+
+    /* ── Photo grid cells ── */
+    .pg { overflow: hidden; border-radius: 4px; }
+    .pg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pg--sq   { aspect-ratio: 1/1; }
+    .pg--tall { aspect-ratio: 3/4; }
+    .pg--wide { aspect-ratio: 16/9; }
+    .pg--port { aspect-ratio: 2/3; }
+    .pg--hero { aspect-ratio: 4/3; }
+    .pg--3-2  { aspect-ratio: 3/2; }
+
+    /* ── Grid layouts ── */
+    .g2  { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
+    .g3  { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+    .g4  { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
+    .g5  { display: grid; grid-template-columns: repeat(5,1fr); gap: 1rem; }
+    .g6  { display: grid; grid-template-columns: repeat(6,1fr); gap: 1rem; }
+    .g-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+    .g-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; }
+    .g-1-2 { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; }
+
+    /* ── Full-bleed image ── */
+    .full-bleed-img { width: 100%; aspect-ratio: 21/7; overflow: hidden; }
+    .full-bleed-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ── Challenge list ── */
+    .challenge-list { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 2rem; }
+    .challenge-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding-bottom: 1.1rem; border-bottom: 1px solid var(--border);
+    }
+    .challenge-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .challenge-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--avi-warm); flex-shrink: 0; margin-top: 0.45rem;
+    }
+    .challenge-item p { font-size: 0.92rem; line-height: 1.6; margin: 0; color: var(--navy); }
+    .challenge-item strong { font-weight: 600; }
+
+    /* ── Service cards ── */
+    .svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 3.5rem; }
+    .svc-card {
+      padding: 2.5rem 2rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .svc-num {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--avi-light);
+      margin-bottom: 1.25rem; display: block;
+    }
+    .svc-card h3 { font-size: 1.05rem; font-weight: 600; color: #fff; margin-bottom: 1.25rem; line-height: 1.35; }
+    .svc-problem {
+      font-size: 0.84rem; line-height: 1.65; color: rgba(255,255,255,0.5);
+      font-style: italic; margin-bottom: 1rem; position: relative; padding-top: 0.2rem;
+    }
+    .svc-problem::before {
+      content: 'Problem —'; display: block; font-style: normal;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--avi-warm); margin-bottom: 0.4rem;
+    }
+    .svc-solution {
+      font-size: 0.88rem; line-height: 1.65; color: rgba(255,255,255,0.78);
+      position: relative; padding-top: 0.2rem;
+    }
+    .svc-solution::before {
+      content: 'Response —'; display: block;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--avi-light); margin-bottom: 0.4rem;
+    }
+
+    /* ── Breadth callout ── */
+    .breadth-callout { background: var(--avi-teal); padding: 5rem 0; }
+    .breadth-callout p {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      font-weight: 300; color: #fff; line-height: 1.55; max-width: 820px;
+    }
+    .breadth-callout em { font-style: italic; color: var(--avi-light); }
+    .breadth-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--avi-light);
+      margin-bottom: 1.5rem; display: block;
+    }
+
+    /* ── Outcomes ── */
+    .outcomes-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+    .outcome-card {
+      padding: 2.25rem 2rem;
+      border-top: 3px solid var(--avi-warm);
+      background: var(--avi-cream);
+      border-radius: 0 0 6px 6px;
+    }
+    .outcome-card .stat-n {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;
+      color: var(--avi-teal); line-height: 1; margin-bottom: 0.4rem;
+    }
+    .outcome-card p { font-size: 0.875rem; line-height: 1.6; }
+
+    /* ── Quote block ── */
+    .quote-block {
+      background: var(--avi-ink); padding: 5rem 0;
+      position: relative; overflow: hidden;
+    }
+    .quote-block::before {
+      content: '';
+      position: absolute; right: -80px; top: -80px;
+      width: 480px; height: 480px;
+      background: url('https://theaviaryfloral.com/cdn/shop/files/TheAviaryLogo_6fff1a4d-7480-47d3-9685-879682399d90_300x.png?v=1663012967') center/contain no-repeat;
+      filter: invert(1); opacity: 0.04; pointer-events: none;
+    }
+    .quote-block blockquote {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 300;
+      color: #fff; line-height: 1.65; max-width: 760px; margin-bottom: 1.5rem;
+    }
+    .quote-attr {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--avi-light);
+    }
+
+    /* ── Work nav ── */
+    .work-nav {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 3rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .work-nav a { font-size: 0.875rem; font-weight: 500; }
+
+    /* ── Section spacing helpers ── */
+    .mt-grid { margin-top: 1rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1000px) {
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .g6 { grid-template-columns: repeat(3,1fr); }
+    }
+    @media (max-width: 900px) {
+      .case-hero { grid-template-columns: 1fr; min-height: auto; }
+      .case-hero-content { padding: 4rem 2rem 3rem; min-height: 50vh; }
+      .case-hero-image { height: 55vw; min-height: 280px; }
+      .g5 { grid-template-columns: repeat(3,1fr); }
+      .g4, .g-strip { grid-template-columns: repeat(2,1fr); }
+      .outcomes-grid { grid-template-columns: 1fr 1fr; }
+      .full-bleed-img { aspect-ratio: 16/7; }
+    }
+    @media (max-width: 640px) {
+      .g3 { grid-template-columns: 1fr 1fr; }
+      .g2, .g-2-1, .g-1-2 { grid-template-columns: 1fr; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .outcomes-grid { grid-template-columns: 1fr; }
+      .case-meta-logo { margin-left: 0; }
+      .full-bleed-img { aspect-ratio: 4/3; }
+      .g6 { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Astutely</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html" class="nav-cta">Start a project</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-content">
+
+  <!-- ── HERO ── -->
+  <div class="case-hero">
+    <div class="case-hero-content">
+      <a href="work.html" style="font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:2.5rem;text-decoration:none;">← All work</a>
+      <span class="label" style="color:var(--avi-light);border-color:rgba(255,255,255,0.15);">Brand &amp; Content · Floral Design</span>
+      <h1 style="font-size:clamp(2rem,4.5vw,3.8rem);margin:1rem 0 1.5rem;color:#fff;line-height:1.1;" data-wipe>The Aviary<br>Floral</h1>
+      <p style="font-size:clamp(0.95rem,1.4vw,1.1rem);color:rgba(255,255,255,0.72);line-height:1.7;max-width:420px;">Brand identity, photography and website for a new floral studio — from first brief to fully booked in ten weeks.</p>
+    </div>
+    <div class="case-hero-image">
+      <div class="img img--overlay">
+        <img src="https://theaviaryfloral.com/cdn/shop/files/Banner003_1000x.jpg" alt="The Aviary Floral" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ── META STRIP ── -->
+  <section style="padding:0;">
+    <div class="container">
+      <div class="case-meta-strip">
+        <div class="case-meta-item">
+          <p>Client</p>
+          <p>The Aviary Floral</p>
+        </div>
+        <div class="case-meta-item">
+          <p>Engagement</p>
+          <p>New business launch</p>
+        </div>
+        <div class="case-meta-item">
+          <p>Services</p>
+          <p>Brand Identity, Photography, Web Design &amp; Build, Content</p>
+        </div>
+        <div class="case-meta-item">
+          <p>Duration</p>
+          <p>10 weeks (launch) + ongoing</p>
+        </div>
+        <div class="case-meta-item case-meta-logo">
+          <img src="https://theaviaryfloral.com/cdn/shop/files/TheAviaryLogo_6fff1a4d-7480-47d3-9685-879682399d90_300x.png?v=1663012967" alt="The Aviary Floral logo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SITUATION ── -->
+  <section>
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <span class="label">The situation</span>
+          <h2 data-wipe>The craft was there from day one. Everything else needed to be built around it.</h2>
+        </div>
+        <div>
+          <p class="lead">The Aviary Floral came to us at the best and most difficult moment for any new business: ready to launch, with a genuinely distinctive skill and absolutely no brand to show for it yet.</p>
+          <p class="mt-sm">Founder Rachael had years of experience in high-end event and wedding floristry — but was stepping out on her own for the first time. The challenge wasn't the quality of the work. It was that nobody knew it existed, and there was no visual identity in place to make a first impression worth making.</p>
+          <p class="mt-sm">In a market where a floral studio's Instagram presence can determine whether it's taken seriously or not, arriving without a name, a mark, photography, or a website would have meant starting at a significant disadvantage. We had ten weeks from brief to launch.</p>
+          <div class="pull-quote mt-sm">
+            <p>"Ready to launch with something genuinely beautiful — and nothing to show a potential client yet."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FULL BLEED ── -->
+  <div class="full-bleed-img">
+    <img src="https://theaviaryfloral.com/cdn/shop/files/Banner004_fc0084ae-7284-4948-b9a0-c10205a3a28e_1000x.jpg" alt="The Aviary Floral — summer arrangement" />
+  </div>
+
+  <!-- ── PHOTOGRAPHY LAUNCH SHOOT ── -->
+  <section style="background:var(--avi-cream);">
+    <div class="container">
+      <span class="label" style="color:var(--avi-teal);">The photography Astutely created</span>
+      <h2 data-wipe style="margin-bottom:0.75rem;max-width:640px;">A complete visual library — built to last far beyond the launch.</h2>
+      <p style="max-width:640px;color:var(--steel);margin-bottom:2.5rem;">We art-directed and shot a two-day launch campaign: studio arrangements, in-environment installations, lifestyle context, and process documentation. The resulting library gave The Aviary an immediate social presence and enough depth to populate the site, editorial pitches, and press materials from day one.</p>
+    </div>
+    <div class="container--wide">
+      <!-- Row 1: 5 tall portraits — the hero launch images -->
+      <div class="g5">
+        <div class="pg pg--tall"><img src="https://theaviaryfloral.com/cdn/shop/files/L1039808_600x.png" alt="Launch shoot — arrangement" /></div>
+        <div class="pg pg--tall"><img src="https://theaviaryfloral.com/cdn/shop/files/L1040040_600x.png" alt="Launch shoot — arrangement" /></div>
+        <div class="pg pg--tall"><img src="https://theaviaryfloral.com/cdn/shop/files/L1039911_600x.png" alt="Launch shoot — wreath detail" /></div>
+        <div class="pg pg--tall"><img src="https://theaviaryfloral.com/cdn/shop/files/L1039667_600x.png" alt="Launch shoot — rustic beech" /></div>
+        <div class="pg pg--tall"><img src="https://theaviaryfloral.com/cdn/shop/files/L1040024_600x.png" alt="Launch shoot — rustic beech" /></div>
+      </div>
+      <!-- Row 2: 4 square — more of the shoot -->
+      <div class="g4 mt-grid">
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/L1039787_600x.png" alt="Launch shoot — wreath" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/L1039789_600x.png" alt="Launch shoot — wreath detail" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/L1040052_600x.png" alt="Launch shoot — pampas wreath" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/L1039944_600x.png" alt="Launch shoot — arrangement" /></div>
+      </div>
+      <!-- Row 3: 3 wide — context and lifestyle -->
+      <div class="g3 mt-grid">
+        <div class="pg pg--3-2"><img src="https://theaviaryfloral.com/cdn/shop/files/L1039935_600x.png" alt="Launch shoot — seasonal arrangement" /></div>
+        <div class="pg pg--3-2"><img src="https://theaviaryfloral.com/cdn/shop/files/IMG_1815_1000x.jpg" alt="The Aviary studio" /></div>
+        <div class="pg pg--3-2"><img src="https://theaviaryfloral.com/cdn/shop/files/IMG_1801_800x.jpg" alt="Aviary display" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY WE WERE BROUGHT IN ── -->
+  <section style="background:var(--grey);">
+    <div class="container">
+      <div class="grid-2" style="align-items:start;gap:4rem;">
+        <div>
+          <span class="label">Why we were brought in</span>
+          <h2 data-wipe style="margin-bottom:1.25rem;">Launching without a brand is the hardest way to start.</h2>
+          <p>A new business in a visually competitive market has a very narrow window to make an impression. Without a coherent identity and strong photography, word of mouth can only carry things so far — and in floristry, the first image a potential client sees often determines whether they enquire at all.</p>
+          <p class="mt-sm">Rachael came to us with the skill, the eye, and the drive. What she needed was a professional foundation built fast enough to meet the moment.</p>
+        </div>
+        <div>
+          <div class="challenge-list">
+            <div class="challenge-item">
+              <div class="challenge-dot"></div>
+              <p><strong>No brand identity.</strong> No name treatment, no mark, no colour system, no typography. Nothing to put on a business card, a website, or a social profile.</p>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-dot"></div>
+              <p><strong>No photography.</strong> The work was stunning in person, but there was no visual record of it — and in floristry, a portfolio is everything.</p>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-dot"></div>
+              <p><strong>No web presence.</strong> No website, no searchability, no way for interested clients to find out more or make an enquiry at any hour of the day.</p>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-dot"></div>
+              <p><strong>Premium positioning at risk.</strong> The quality of the work deserved a premium price point — but without a brand to match it, that positioning would be hard to hold.</p>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-dot"></div>
+              <p><strong>Ten weeks to launch.</strong> There was a hard deadline. Everything — name, identity, shoot, site — had to be ready at the same time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT WE DID ── -->
+  <section style="background:var(--avi-ink);padding:5rem 0;">
+    <div class="container">
+      <span class="label" style="color:var(--avi-light);">What we did</span>
+      <h2 style="color:#fff;max-width:680px;margin-bottom:0;" data-wipe>Brand, lens, and site — built together so everything speaks the same language from day one.</h2>
+      <div class="svc-grid">
+        <div class="svc-card" data-reveal>
+          <span class="svc-num">01</span>
+          <h3>Brand identity</h3>
+          <p class="svc-problem">No mark, no palette, no visual language. Without a brand, every piece of marketing, every social post, and every client touchpoint would feel disconnected — undermining the premium positioning Rachael had earned through her craft.</p>
+          <p class="svc-solution">A refined identity built around restraint and natural form. The logotype draws on botanical illustration — unhurried, precise, quietly distinctive. A tight palette of warm off-whites, deep teals, and earthy mauve tones that reads as considered rather than corporate. The system works as well on a business card as it does on a full-page editorial spread.</p>
+        </div>
+        <div class="svc-card" data-reveal>
+          <span class="svc-num">02</span>
+          <h3>Photography &amp; launch content</h3>
+          <p class="svc-problem">Without a portfolio, any new client enquiry had to be won purely on reputation and referral — a ceiling that would cap growth from the start. In floristry, the photograph is the product before the product exists.</p>
+          <p class="svc-solution">A full two-day launch photography campaign — studio arrangements, in-environment lifestyle work, installation shots, and process documentation — art-directed to tell the story of making, not just the finished piece. The resulting library gave The Aviary an immediate social presence and enough depth for editorial pitches and press materials from day one of trading.</p>
+        </div>
+        <div class="svc-card" data-reveal>
+          <span class="svc-num">03</span>
+          <h3>Website &amp; online presence</h3>
+          <p class="svc-problem">No website meant no discoverability. Interested clients had no way to learn more, see the portfolio, understand the services, or make an enquiry outside of a direct referral — which meant opportunities were being lost before they even began.</p>
+          <p class="svc-solution">A portfolio-first website built on Shopify that lets the work lead. Services, approach, and enquiry forms structured to convert browsers into qualified leads. Built to be updated easily by the founder without technical support. Fast, mobile-first, and designed for the moment a potential wedding or event client is comparing their options.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BREADTH CALLOUT ── -->
+  <div class="breadth-callout">
+    <div class="container">
+      <span class="breadth-label">The full picture</span>
+      <p>Outside of the arrangements themselves, there was very little The Aviary had when they came to us. We handed them back <em>a name, a mark, a colour system, two days of photography, a full website, and a social presence</em> — all coherent, all ready, all on time.</p>
+    </div>
+  </div>
+
+  <!-- ── FAUX FLOWER ARRANGEMENTS ── -->
+  <section>
+    <div class="container">
+      <span class="label">Faux flower arrangements</span>
+      <h2 data-wipe style="margin-bottom:0.75rem;max-width:600px;">Every arrangement photographed to sell — not just to catalogue.</h2>
+      <p style="color:var(--steel);max-width:600px;margin-bottom:2.5rem;">The product photography we created gave each arrangement its own story — styled, lit, and shot to sit comfortably in a luxury home. Not product shots, but desire shots.</p>
+    </div>
+    <div class="container--wide">
+      <!-- Row 1 -->
+      <div class="g4">
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/DahliaDeluxe001_600x.jpg" alt="Dahlia Deluxe" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/DahliaDeluxe008_600x.jpg" alt="Dahlia Deluxe" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/DahliaSlim002_600x.jpg" alt="Dahlia Slim" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/DahliaSlim005_600x.jpg" alt="Dahlia Slim" /></div>
+      </div>
+      <!-- Row 2 -->
+      <div class="g4 mt-grid">
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/PinkGarden008_600x.jpg" alt="Pink Garden" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/PinkGardenDeluxe003_600x.jpg" alt="Pink Garden Deluxe" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/PeonyMini004_600x.jpg" alt="Summer Peony Mini" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/PeonyMini003_600x.jpg" alt="Summer Peony Mini" /></div>
+      </div>
+      <!-- Row 3 -->
+      <div class="g4 mt-grid">
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/TulipGarden005_600x.jpg" alt="Tulip Garden" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/SummerGarden003_600x.jpg" alt="Summer Garden" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/Hydrangea004_600x.jpg" alt="Muted Hydrangea" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/Blossom005_600x.jpg" alt="Soft Pink Blossom" /></div>
+      </div>
+      <!-- Row 4 -->
+      <div class="g4 mt-grid">
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/Artichoke003_600x.jpg" alt="Artichoke Deluxe" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/Artichoke002_600x.jpg" alt="Artichoke Deluxe" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/PinkGardenDeluxe010_600x.jpg" alt="Pink Garden Deluxe" /></div>
+        <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/products/VALENTINES-04_600x.jpg" alt="Pastel Peony" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DRIED FLOWERS ── -->
+  <section style="background:var(--avi-cream);">
+    <div class="container">
+      <span class="label" style="color:var(--avi-teal);">Dried flower collections</span>
+      <h2 data-wipe style="margin-bottom:0.75rem;max-width:560px;">From minimal to wild — a full palette of dried arrangements.</h2>
+      <p style="color:var(--steel);max-width:560px;margin-bottom:2.5rem;">Each dried collection photographed in the same consistent style — clean, warm, with the textures and depth of the flowers doing the work.</p>
+    </div>
+    <div class="container--wide">
+      <div class="g6">
+        <div class="pg pg--tall"><img src="https://theaviaryfloral.com/cdn/shop/products/DriedLavender004_600x.jpg" alt="Dried Lavender" /></div>
+        <div class="pg pg--tall"><img src="https://theaviaryfloral.com/cdn/shop/products/DriedGoldenGarden003_600x.jpg" alt="Golden Garden" /></div>
+        <div class="pg pg--tall"><img src="https://theaviaryfloral.com/cdn/shop/products/DriedTangerineSunrise005_600x.jpg" alt="Tangerine Sunrise" /></div>
+        <div class="pg pg--tall"><img src="https://theaviaryfloral.com/cdn/shop/products/DriedPink002_600x.jpg" alt="Wild Garden" /></div>
+        <div class="pg pg--tall"><img src="https://theaviaryfloral.com/cdn/shop/products/DriedBlack002_600x.jpg" alt="Modern Thistle" /></div>
+        <div class="pg pg--tall"><img src="https://theaviaryfloral.com/cdn/shop/products/DriedPalm005_600x.jpg" alt="Neutral Palm" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WREATHS ── -->
+  <section>
+    <div class="container">
+      <span class="label">Door wreaths</span>
+      <h2 data-wipe style="margin-bottom:0.75rem;max-width:560px;">Statement pieces — shot to be as beautiful as the real thing.</h2>
+      <p style="color:var(--steel);max-width:560px;margin-bottom:2.5rem;">Wreaths are a significant part of The Aviary's range and some of the first items to sell seasonally. The photography gives each one the staging it deserves.</p>
+    </div>
+    <div class="container--wide">
+      <div class="g-strip" style="gap:0;">
+        <div class="pg" style="aspect-ratio:1/1;border-radius:0;"><img src="https://theaviaryfloral.com/cdn/shop/products/fw-autumnforager001_600x.jpg" alt="Autumn Forager wreath" /></div>
+        <div class="pg" style="aspect-ratio:1/1;border-radius:0;"><img src="https://theaviaryfloral.com/cdn/shop/products/fw-autumnforager002_600x.jpg" alt="Autumn Forager wreath" /></div>
+        <div class="pg" style="aspect-ratio:1/1;border-radius:0;"><img src="https://theaviaryfloral.com/cdn/shop/files/L1039787_600x.png" alt="Autumn Dried Oak wreath" /></div>
+        <div class="pg" style="aspect-ratio:1/1;border-radius:0;"><img src="https://theaviaryfloral.com/cdn/shop/files/L1039789_600x.png" alt="Autumn Dried Oak wreath" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WEDDINGS & EVENTS ── -->
+  <section style="background:var(--avi-cream);padding:5rem 0;">
+    <div class="container">
+      <div class="grid-2" style="align-items:start;gap:4rem;">
+        <div>
+          <span class="label" style="color:var(--avi-teal);">Weddings &amp; events</span>
+          <h2 data-wipe style="margin-bottom:1.25rem;">Bespoke event work needs to be sold before it exists.</h2>
+          <p>A portfolio that gives confidence to a couple planning a wedding or a venue commissioning a centrepiece installation. We built that portfolio from scratch — and the photography has done the work every time someone new visits the site.</p>
+          <p class="mt-sm">The wedding shoot gave The Aviary an immediate case study for every enquiry in the event category: proof of scale, proof of aesthetic, proof that the studio can deliver at the level clients in that market expect.</p>
+        </div>
+        <div>
+          <div class="g2">
+            <div class="pg pg--hero"><img src="https://theaviaryfloral.com/cdn/shop/articles/IMG_1823_852634ab-2596-4af6-81b2-0547ce997815_600x.jpg" alt="Wedding floral setup" /></div>
+            <div class="pg pg--hero"><img src="https://theaviaryfloral.com/cdn/shop/files/Resize-BGE_Table_1a06c0d4-df9b-4097-9ddf-c7448f194c37_1000x.png" alt="Table centrepiece" /></div>
+          </div>
+          <div class="g3 mt-grid">
+            <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/articles/IMG_20220514_151857_600x.jpg" alt="Floral event work" /></div>
+            <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/SummerGarden001_600x.jpg" alt="Summer garden arrangement" /></div>
+            <div class="pg pg--sq"><img src="https://theaviaryfloral.com/cdn/shop/files/Resize-_plant_webpage_681b7af5-1b79-4086-9331-4348f606a242_1000x.png" alt="Indoor plant styling" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FACTS STRIP ── -->
+  <section style="background:var(--avi-teal);padding:3.5rem 0;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;">
+        <div>
+          <p style="font-family:'Source Serif 4',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:300;color:#fff;line-height:1;margin-bottom:0.4rem;">2021</p>
+          <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--avi-light);">Founded</p>
+        </div>
+        <div>
+          <p style="font-family:'Source Serif 4',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:300;color:#fff;line-height:1;margin-bottom:0.4rem;">10 wks</p>
+          <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--avi-light);">Brief to launch</p>
+        </div>
+        <div>
+          <p style="font-family:'Source Serif 4',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:300;color:#fff;line-height:1;margin-bottom:0.4rem;">2 days</p>
+          <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--avi-light);">Photography campaign</p>
+        </div>
+        <div>
+          <p style="font-family:'Source Serif 4',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:300;color:#fff;line-height:1;margin-bottom:0.4rem;">100%</p>
+          <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--avi-light);">Peak season filled</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OUTCOMES ── -->
+  <section>
+    <div class="container">
+      <span class="label">The outcomes</span>
+      <h2 data-wipe>Launched on time. Fully booked within the first season.</h2>
+      <div class="outcomes-grid">
+        <div class="outcome-card" data-reveal>
+          <p class="stat-n">100%</p>
+          <p>Peak season bookings filled within six weeks of launch — before a single paid campaign ran.</p>
+        </div>
+        <div class="outcome-card" data-reveal>
+          <p class="stat-n">3.8×</p>
+          <p>Instagram following growth in the first three months, driven entirely by the launch photography library.</p>
+        </div>
+        <div class="outcome-card" data-reveal>
+          <p class="stat-n">2</p>
+          <p>Editorial features secured in regional lifestyle press in the first year, both driven by the brand photography.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QUOTE ── -->
+  <div class="quote-block">
+    <div class="container">
+      <blockquote>"I can't tell you how many enquiries have opened with 'I found you on Instagram and your brand really stood out.' That doesn't happen by accident. Astutely made it happen."</blockquote>
+      <p class="quote-attr">Rachael Annett — Founder, The Aviary Floral</p>
+    </div>
+  </div>
+
+  <!-- ── WORK NAV ── -->
+  <section style="padding-bottom:0;">
+    <div class="container">
+      <div class="work-nav">
+        <a href="work-seacourt.html">← Previous: Seacourt Print Workshop</a>
+        <a href="work-glentoran.html">See also: Glentoran FC →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="container">
+      <span class="label label--light">Start a project</span>
+      <h2>Got a similar challenge?</h2>
+      <p>Tell us about it and we'll come back with an honest view on how we can help.</p>
+      <a href="contact.html" class="btn btn-white">Start the conversation</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Astutely</a>
+        <p>A digital agency building brand, web, marketing and systems on a foundation of clarity.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#brand">Brand &amp; Strategy</a></li>
+          <li><a href="services.html#web">Web Design &amp; Build</a></li>
+          <li><a href="services.html#marketing">Digital Marketing</a></li>
+          <li><a href="services.html#content">Content &amp; Creative</a></li>
+          <li><a href="services.html#systems">Systems &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="reset.html">The Reset</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Start</h5>
+        <ul>
+          <li><a href="contact.html">Start a project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Astutely. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

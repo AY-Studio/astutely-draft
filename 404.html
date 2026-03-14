@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found – Astutely</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="animations.js" defer></script>
+  <script src="cookies.js" defer></script>
+  <noscript><style>.hero-content > * { opacity: 1 !important; transform: none !important; }</style></noscript>
+  <style>
+    .not-found {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 0;
+    }
+    .not-found-inner {
+      max-width: 560px;
+    }
+    .not-found-num {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(5rem, 15vw, 10rem);
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 0;
+      display: block;
+    }
+    .not-found h1 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 600;
+      color: var(--navy);
+      margin: 1rem 0 1.25rem;
+      line-height: 1.3;
+    }
+    .not-found p {
+      color: var(--mid-grey);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+    }
+    .not-found-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .not-found-link {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      text-decoration: none;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color 0.2s, background 0.2s;
+      min-width: 140px;
+    }
+    .not-found-link:hover {
+      border-color: var(--navy);
+      background: #f7f7f5;
+    }
+    .not-found-link span:first-child {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--steel);
+    }
+    .not-found-link span:last-child {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.95rem;
+      color: var(--navy);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Astutely</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html" class="nav-cta">Start a project</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-content">
+  <section class="not-found">
+    <div class="container">
+      <div class="not-found-inner">
+        <span class="not-found-num" aria-hidden="true">404</span>
+        <h1>This page doesn't exist.</h1>
+        <p>The page you're looking for has either moved, been renamed, or never existed in the first place. If you followed a link that brought you here, let us know.</p>
+        <div class="btn-group">
+          <a href="index.html" class="btn btn-primary">Back to home</a>
+          <a href="contact.html" class="btn btn-outline">Get in touch</a>
+        </div>
+        <div class="not-found-links">
+          <a href="work.html" class="not-found-link">
+            <span>Browse</span>
+            <span>Our Work</span>
+          </a>
+          <a href="services.html" class="not-found-link">
+            <span>Explore</span>
+            <span>Services</span>
+          </a>
+          <a href="about.html" class="not-found-link">
+            <span>Learn</span>
+            <span>About Us</span>
+          </a>
+          <a href="insights.html" class="not-found-link">
+            <span>Read</span>
+            <span>Insights</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Astutely</a>
+        <p>A digital agency building brand, web, marketing and systems on a foundation of clarity.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#brand">Brand &amp; Strategy</a></li>
+          <li><a href="services.html#web">Web Design &amp; Build</a></li>
+          <li><a href="services.html#marketing">Digital Marketing</a></li>
+          <li><a href="services.html#content">Content &amp; Creative</a></li>
+          <li><a href="services.html#systems">Systems &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="reset.html">The Reset</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Start</h5>
+        <ul>
+          <li><a href="contact.html">Start a project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Astutely. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

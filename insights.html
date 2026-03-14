@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights – Astutely Digital Agency</title>
+  <meta name="description" content="Thinking from the Astutely team on brand, digital, marketing and growth." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="animations.js" defer></script>
+  <script src="cookies.js" defer></script>
+  <noscript><style>.hero-content > * { opacity: 1 !important; transform: none !important; } [data-reveal],[data-wipe] { opacity: 1 !important; transform: none !important; clip-path: none !important; }</style></noscript>
+  <style>
+    .tag-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .tag-btn {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: none;
+      color: var(--dark-grey);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .tag-btn:hover, .tag-btn.active {
+      border-color: var(--navy);
+      background: var(--navy);
+      color: var(--white);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Astutely</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="insights.html" class="active">Insights</a></li>
+      <li><a href="contact.html" class="nav-cta">Start a project</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-content">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="label">Insights</span>
+      <h1 data-wipe>Thinking from the team.</h1>
+      <p class="lead" style="margin-top: 1.25rem;">Essays and perspectives on brand, digital, marketing and growth, written when we have something worth saying.</p>
+    </div>
+  </section>
+
+  <!-- Featured -->
+  <section style="padding-bottom: 0;">
+    <div class="container">
+      <div class="split" data-reveal>
+        <div class="split-image">
+          <div class="img img--3-2" style="border-radius: 6px;">
+            <!-- <img src="images/insights/featured.jpg" alt="Why growing companies lose their story" /> -->
+          </div>
+        </div>
+        <div>
+          <span class="label">Latest</span>
+          <p style="font-size: 0.78rem; color: var(--mid-grey); margin-bottom: 0.75rem;">March 2026 · 8 min read · Strategy</p>
+          <h2 style="margin-bottom: 1rem;">Why growing companies lose their story</h2>
+          <p class="lead">Growth creates narrative drift. It happens gradually, then suddenly. Most founders only notice when a new hire asks what they actually do and nobody gives the same answer.</p>
+          <div class="mt-md">
+            <a href="#" class="btn btn-primary">Read the essay</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All insights list -->
+  <section>
+    <div class="container">
+      <div class="tag-row">
+        <button class="tag-btn active">All</button>
+        <button class="tag-btn">Strategy</button>
+        <button class="tag-btn">Brand</button>
+        <button class="tag-btn">Web</button>
+        <button class="tag-btn">Marketing</button>
+        <button class="tag-btn">Systems</button>
+      </div>
+
+      <div>
+        <div class="insight-list-item" data-reveal>
+          <div>
+            <p class="insight-list-cat">Strategy</p>
+            <p class="insight-list-meta">March 2026 · 8 min</p>
+          </div>
+          <div>
+            <h3><a href="#">Why growing companies lose their story</a></h3>
+            <p>Growth creates narrative drift. Here's why it happens and what to do when you notice the signs.</p>
+          </div>
+          <span class="insight-arrow">→</span>
+        </div>
+
+        <div class="insight-list-item" data-reveal>
+          <div>
+            <p class="insight-list-cat">Marketing</p>
+            <p class="insight-list-meta">February 2026 · 6 min</p>
+          </div>
+          <div>
+            <h3><a href="#">The problem with marketing that isn't built on positioning</a></h3>
+            <p>Most fragmented marketing isn't a budget or talent problem. It's a clarity problem that starts earlier than most people think.</p>
+          </div>
+          <span class="insight-arrow">→</span>
+        </div>
+
+        <div class="insight-list-item" data-reveal>
+          <div>
+            <p class="insight-list-cat">Web</p>
+            <p class="insight-list-meta">January 2026 · 7 min</p>
+          </div>
+          <div>
+            <h3><a href="#">What makes a website actually convert</a></h3>
+            <p>Conversion is a clarity problem as much as a design problem. What we've learned from 60+ website builds.</p>
+          </div>
+          <span class="insight-arrow">→</span>
+        </div>
+
+        <div class="insight-list-item" data-reveal>
+          <div>
+            <p class="insight-list-cat">Brand</p>
+            <p class="insight-list-meta">December 2025 · 9 min</p>
+          </div>
+          <div>
+            <h3><a href="#">How to write a positioning statement that actually works</a></h3>
+            <p>Most positioning statements are too broad to be useful or too narrow to be true. A framework for getting it right.</p>
+          </div>
+          <span class="insight-arrow">→</span>
+        </div>
+
+        <div class="insight-list-item" data-reveal>
+          <div>
+            <p class="insight-list-cat">Systems</p>
+            <p class="insight-list-meta">November 2025 · 6 min</p>
+          </div>
+          <div>
+            <h3><a href="#">When your tech stack outgrows your strategy</a></h3>
+            <p>Tools multiply as teams grow. Without structural thinking, your systems start working against you.</p>
+          </div>
+          <span class="insight-arrow">→</span>
+        </div>
+
+        <div class="insight-list-item" data-reveal>
+          <div>
+            <p class="insight-list-cat">Strategy</p>
+            <p class="insight-list-meta">October 2025 · 8 min</p>
+          </div>
+          <div>
+            <h3><a href="#">Before the rebrand: what founders need to resolve first</a></h3>
+            <p>Rebrands that fail usually fail because they were commissioned to solve a strategic problem with a visual solution.</p>
+          </div>
+          <span class="insight-arrow">→</span>
+        </div>
+
+        <div class="insight-list-item" data-reveal>
+          <div>
+            <p class="insight-list-cat">Marketing</p>
+            <p class="insight-list-meta">September 2025 · 5 min</p>
+          </div>
+          <div>
+            <h3><a href="#">What a marketing audit actually tells you</a></h3>
+            <p>A proper marketing audit isn't about what's performing. It reveals how the company sees itself, which is often more illuminating.</p>
+          </div>
+          <span class="insight-arrow">→</span>
+        </div>
+
+        <div class="insight-list-item" data-reveal>
+          <div>
+            <p class="insight-list-cat">Systems</p>
+            <p class="insight-list-meta">August 2025 · 8 min</p>
+          </div>
+          <div>
+            <h3><a href="#">CRM as a strategic asset, not an operational burden</a></h3>
+            <p>Most CRM implementations reflect how a company is organised, not how it creates value. The difference has significant commercial consequences.</p>
+          </div>
+          <span class="insight-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe -->
+  <section style="background: var(--grey);">
+    <div class="container--narrow text-center">
+      <span class="label" style="justify-content: center; display: flex;">Stay in the loop</span>
+      <h2 style="margin-bottom: 1rem;">New thinking, when it's ready.</h2>
+      <p style="margin-bottom: 2rem; max-width: 420px; margin-left: auto; margin-right: auto;">We publish when we have something worth saying. No cadence, no newsletter schedule. Just good thinking, occasionally.</p>
+      <form style="display: flex; gap: 0.75rem; max-width: 420px; margin: 0 auto;" onsubmit="return false;">
+        <input type="email" placeholder="Your email address" style="flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 4px; font-family: Inter, sans-serif; font-size: 0.95rem; outline: none;" />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Astutely</a>
+        <p>A digital agency building brand, web, marketing and systems on a foundation of clarity.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#brand">Brand &amp; Strategy</a></li>
+          <li><a href="services.html#web">Web Design &amp; Build</a></li>
+          <li><a href="services.html#marketing">Digital Marketing</a></li>
+          <li><a href="services.html#content">Content &amp; Creative</a></li>
+          <li><a href="services.html#systems">Systems &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="reset.html">The Reset</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Start</h5>
+        <ul>
+          <li><a href="contact.html">Start a project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Astutely. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tag-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

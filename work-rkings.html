@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R Kings Competitions – Astutely Work</title>
+  <meta name="description" content="How Astutely helped R Kings become the UK and Ireland's premium competition platform — strategy, brand, platform engineering, email automation and content production at scale." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="animations.js" defer></script>
+  <script src="cookies.js" defer></script>
+  <noscript><style>.hero-content > * { opacity: 1 !important; transform: none !important; } [data-reveal],[data-wipe] { opacity: 1 !important; transform: none !important; clip-path: none !important; }</style></noscript>
+  <style>
+    /* ── R Kings brand tokens ── */
+    :root {
+      --rk-gold:   #d4a017;
+      --rk-amber:  #e8a800;
+      --rk-yellow: #f5c400;
+      --rk-dark:   #0a0a08;
+      --rk-mid:    #141410;
+      --rk-ink:    #060605;
+      --rk-charcoal: #1c1c18;
+      --rk-warm:   #1f1d0f;
+    }
+
+    /* ── Case hero ── */
+    .case-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+      overflow: hidden;
+    }
+    .case-hero-content {
+      background: var(--rk-ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 5rem 3.5rem 5rem max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+      position: relative;
+      overflow: hidden;
+    }
+    .case-hero-content::before {
+      content: '';
+      position: absolute;
+      bottom: -30px; right: -40px;
+      width: 420px; height: 420px;
+      background: url('https://rkingscompetitions.com/assets/logo_lg.gif') center/contain no-repeat;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+    .case-hero-content::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--rk-amber);
+    }
+    .case-hero-image {
+      overflow: hidden;
+      position: relative;
+      background: var(--rk-dark);
+    }
+    .case-hero-image .img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      aspect-ratio: unset; border-radius: 0;
+    }
+
+    /* ── Meta strip ── */
+    .case-meta-strip {
+      display: flex; gap: 3rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 3rem 0; flex-wrap: wrap; align-items: center;
+    }
+    .case-meta-item p:first-child {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--steel); margin-bottom: 0.3rem;
+    }
+    .case-meta-item p:last-child { font-size: 0.95rem; font-weight: 500; color: var(--navy); }
+    .case-meta-logo { margin-left: auto; }
+    .case-meta-logo img { height: 48px; width: auto; display: block; opacity: 0.85; }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      border-left: 3px solid var(--rk-amber);
+      padding: 1.25rem 1.75rem;
+      margin: 2.5rem 0;
+      background: #fafaf8;
+    }
+    .pull-quote p {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.25rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.55;
+      margin: 0 0 0.75rem;
+    }
+    .pull-quote cite { font-size: 0.78rem; color: var(--steel); font-style: normal; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* ── Full-bleed photo ── */
+    .full-bleed { width: 100%; overflow: hidden; }
+    .full-bleed .img { border-radius: 0; aspect-ratio: unset; }
+    .full-bleed img { width: 100%; height: 60vh; object-fit: cover; display: block; }
+
+    /* ── Section utilities ── */
+    .s-cream  { background: #f7f6f3; padding: 5rem 0; }
+    .s-dark   { background: var(--rk-dark); padding: 5rem 0; }
+    .s-mid    { background: var(--rk-mid); padding: 5rem 0; }
+    .s-ink    { background: var(--rk-ink); padding: 5rem 0; }
+    .s-charcoal { background: var(--rk-charcoal); padding: 5rem 0; }
+    .s-gold   { background: var(--rk-amber); padding: 5rem 0; }
+    .s-yellow { background: var(--rk-yellow); padding: 5rem 0; }
+    .s-grey   { background: #f2f2ef; padding: 5rem 0; }
+    .s-white  { background: #fff; padding: 5rem 0; }
+
+    .section-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--steel); margin-bottom: 1rem;
+    }
+    .section-label--light { color: rgba(255,255,255,0.45); }
+    .section-label--gold  { color: var(--rk-amber); }
+
+    /* ── Photo grid utilities ── */
+    .pg { overflow: hidden; }
+    .pg img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .pg:hover img { transform: scale(1.03); }
+    .pg--sq   { aspect-ratio: 1/1; }
+    .pg--wide { aspect-ratio: 16/9; }
+    .pg--3-2  { aspect-ratio: 3/2; }
+    .pg--tall { aspect-ratio: 3/4; }
+    .pg--cinema { aspect-ratio: 21/9; }
+
+    .g2  { display: grid; grid-template-columns: repeat(2,1fr); gap: 0.75rem; }
+    .g3  { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.75rem; }
+    .g4  { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.75rem; }
+    .g-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+    .g-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 0.75rem; }
+    .g-1-2 { display: grid; grid-template-columns: 1fr 2fr; gap: 0.75rem; }
+
+    /* ── Challenge list ── */
+    .challenge-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; margin-top: 2rem; }
+    .challenge-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.1rem 1.4rem; background: #fff; border: 1px solid #e8e7e3; border-radius: 6px; }
+    .challenge-dot  { width: 10px; height: 10px; border-radius: 50%; background: var(--rk-amber); flex-shrink: 0; margin-top: 5px; }
+    .challenge-item p { font-size: 0.95rem; color: var(--navy); line-height: 1.5; margin: 0; }
+    .challenge-item strong { color: var(--rk-dark); }
+
+    /* ── Service cards ── */
+    .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 3rem; }
+    .svc-card { background: var(--rk-charcoal); border-radius: 8px; padding: 2rem; border-top: 3px solid var(--rk-amber); }
+    .svc-card h3 { font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 400; color: #fff; margin-bottom: 1.25rem; line-height: 1.3; }
+    .svc-problem, .svc-solution { font-size: 0.875rem; line-height: 1.6; margin-bottom: 0.85rem; }
+    .svc-problem { color: rgba(255,255,255,0.5); }
+    .svc-solution { color: rgba(255,255,255,0.85); }
+    .svc-problem::before { content: 'Problem — '; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rk-amber); display: block; margin-bottom: 0.35rem; }
+    .svc-solution::before { content: 'Response — '; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); display: block; margin-bottom: 0.35rem; }
+
+    /* ── Scale band numbers ── */
+    .scale-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+    .scale-item { text-align: center; }
+    .scale-num { font-family: 'Source Serif 4', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; color: var(--rk-amber); line-height: 1; margin-bottom: 0.5rem; }
+    .scale-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+
+    /* ── Email showcase ── */
+    .email-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2.5rem; }
+    .email-wide { grid-column: span 2; }
+
+    /* ── Breadth callout ── */
+    .breadth-band { background: var(--rk-dark); padding: 5rem 0; border-top: 1px solid rgba(212,160,23,0.2); border-bottom: 1px solid rgba(212,160,23,0.2); }
+    .breadth-band .breadth-text {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.6rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.4;
+      max-width: 860px;
+    }
+    .breadth-band .breadth-text em { color: var(--rk-amber); font-style: normal; }
+
+    /* ── Facts strip ── */
+    .facts-strip { background: var(--rk-ink); border-top: 1px solid rgba(255,255,255,0.06); }
+    .facts-inner { display: flex; flex-wrap: wrap; }
+    .fact-item { flex: 1 1 180px; padding: 2.5rem 2rem; border-right: 1px solid rgba(255,255,255,0.06); text-align: center; }
+    .fact-item:last-child { border-right: none; }
+    .fact-num { font-family: 'Source Serif 4', serif; font-size: clamp(2rem,4vw,3rem); font-weight: 300; color: var(--rk-amber); line-height: 1; margin-bottom: 0.4rem; }
+    .fact-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+    /* ── Outcomes ── */
+    .outcomes-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .outcome-card { border-top: 3px solid var(--rk-amber); padding: 2rem 0 0; }
+    .outcome-num { font-family: 'Source Serif 4', serif; font-size: 2.5rem; font-weight: 300; color: var(--navy); margin-bottom: 0.5rem; line-height: 1; }
+    .outcome-desc { font-size: 0.9rem; color: var(--mid-grey); line-height: 1.6; }
+    .outcome-title { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+
+    /* ── Quote block ── */
+    .quote-block {
+      background: var(--rk-ink);
+      padding: 6rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-block::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px; height: 500px;
+      background: url('https://rkingscompetitions.com/assets/logo_lg.gif') center/contain no-repeat;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+    .quote-block blockquote {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.55;
+      max-width: 820px;
+      margin: 0 auto 2rem;
+      position: relative; z-index: 1;
+    }
+    .quote-attr { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); position: relative; z-index: 1; }
+    .quote-attr strong { color: var(--rk-amber); display: block; margin-bottom: 0.25rem; font-size: 0.85rem; letter-spacing: 0.06em; }
+
+    /* ── Work nav ── */
+    .work-nav { border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; }
+    .work-nav a { padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: 0.35rem; text-decoration: none; transition: background 0.2s; }
+    .work-nav a:hover { background: #f7f6f3; }
+    .work-nav a:first-child { border-right: 1px solid var(--border); }
+    .work-nav a:last-child { text-align: right; }
+    .work-nav-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel); }
+    .work-nav-title { font-family: 'Source Serif 4', serif; font-size: 1.05rem; color: var(--navy); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .case-hero { grid-template-columns: 1fr; min-height: auto; }
+      .case-hero-content { padding: 3.5rem 1.5rem 3.5rem; min-height: 60vw; }
+      .case-hero-image { min-height: 55vw; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .scale-grid { grid-template-columns: repeat(2,1fr); }
+      .email-grid { grid-template-columns: 1fr; }
+      .email-wide { grid-column: span 1; }
+      .outcomes-grid { grid-template-columns: 1fr; }
+      .work-nav { grid-template-columns: 1fr; }
+      .work-nav a:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+      .work-nav a:last-child { text-align: left; }
+    }
+    @media (max-width: 600px) {
+      .g2,.g3,.g4 { grid-template-columns: 1fr; }
+      .g-2-1, .g-1-2 { grid-template-columns: 1fr; }
+      .g-strip { grid-template-columns: repeat(2,1fr); }
+      .scale-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .facts-inner { flex-direction: column; }
+      .fact-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .case-meta-strip { gap: 1.5rem; }
+      .case-meta-logo { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Astutely</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html" class="nav-cta">Start a project</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <div class="case-hero">
+    <div class="case-hero-content">
+      <p class="section-label section-label--light" style="margin-bottom:1.5rem;" data-reveal>Strategy · Brand · Platform · Scale</p>
+      <h1 style="font-family:'Source Serif 4',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:300; color:#fff; line-height:1.15; margin-bottom:1.25rem;" data-wipe>R Kings<br>Competitions.</h1>
+      <p style="font-size:1.05rem; color:rgba(255,255,255,0.6); line-height:1.65; max-width:380px;" data-reveal>Premium prizes. Tens of thousands of entries. A business that needed to operate at a level most competition platforms never reach.</p>
+    </div>
+    <div class="case-hero-image">
+      <div class="img">
+        <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/5dc6b374-e773-4d00-b502-e4edf60c7508/RK_Images_1920x1080_3.jpg" alt="Green Lamborghini in R Kings branded studio" loading="eager" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ── META STRIP ── -->
+  <div class="container">
+    <div class="case-meta-strip">
+      <div class="case-meta-item">
+        <p>Client</p>
+        <p>R Kings Competitions</p>
+      </div>
+      <div class="case-meta-item">
+        <p>Sector</p>
+        <p>E-commerce · Competitions</p>
+      </div>
+      <div class="case-meta-item">
+        <p>Services</p>
+        <p>Strategy, Brand, Platform, Email, Content</p>
+      </div>
+      <div class="case-meta-item">
+        <p>Location</p>
+        <p>Newry, Northern Ireland</p>
+      </div>
+      <div class="case-meta-item">
+        <p>Engagement</p>
+        <p>Multi-year</p>
+      </div>
+      <div class="case-meta-logo">
+        <img src="https://rkingscompetitions.com/assets/logo_lg.gif" alt="R Kings Competitions" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SITUATION ── -->
+  <section class="s-white" style="padding-top:0; padding-bottom:4rem;">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;" class="responsive-2col">
+        <div data-reveal>
+          <span class="section-label">The Situation</span>
+          <h2 style="font-family:'Source Serif 4',serif; font-size:clamp(1.6rem,3vw,2.4rem); font-weight:300; color:var(--navy); line-height:1.3; margin-bottom:1.5rem;">Growing fast into a market with no ceiling — and no map.</h2>
+          <p style="color:var(--mid-grey); line-height:1.75; margin-bottom:1rem;">R Kings had the prizes. They had the audience appetite. But the UK and Ireland's competition market is noisy, short-term and built on low prices rather than real brand. The question wasn't whether R Kings could compete — it was whether they could build something that lasted.</p>
+          <p style="color:var(--mid-grey); line-height:1.75; margin-bottom:1rem;">Behind the scenes, scale was exposing cracks. Peak traffic during live draws was pushing checkout to breaking point. Email campaigns were generic. Photography had no production standard. Security protocols didn't exist. Each problem individually was manageable — together, they were a ceiling.</p>
+          <p style="color:var(--mid-grey); line-height:1.75;">We came in as technical and brand consultants, and stayed. This is the story of what it takes to build a competition platform that actually holds together when thirty thousand people enter at once.</p>
+        </div>
+        <div data-reveal>
+          <div class="pull-quote">
+            <p>"We had been having issues with our website and marketing for months. They nailed it. They redesigned the entire site, overhauled our digital marketing and continue to maintain it. Our results have been going up year-on-year."</p>
+            <cite>Mark Weir — Founder &amp; Managing Director, R Kings Competitions</cite>
+          </div>
+          <div class="pg pg--3-2" style="border-radius:6px; overflow:hidden; margin-top:1.25rem;">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/0664d6bb-4052-4629-96ff-36f15658b689/RK_Images_1920x1080_26.jpg" alt="R Kings HQ, Newry" />
+          </div>
+          <p style="font-size:0.75rem; color:var(--steel); margin-top:0.6rem; letter-spacing:0.04em;">R Kings HQ, Mill Road, Newry, Northern Ireland</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FULL-BLEED: BRAND STRATEGY ── -->
+  <div class="full-bleed">
+    <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/59dabc6c-0900-4ec5-8fa0-0b788009b6f3/RK_Images_1920x1080_22.jpg" alt="R Kings brand strategy — holistic brand experience" style="height:65vh;" />
+  </div>
+
+  <!-- ── PRIZE PHOTOGRAPHY ── -->
+  <section class="s-dark">
+    <div class="container">
+      <span class="section-label section-label--light" data-reveal>Prize Photography &amp; Videography</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:end; margin-bottom:2rem;" data-reveal>
+        <h2 style="font-family:'Source Serif 4',serif; font-size:clamp(1.5rem,3vw,2.2rem); font-weight:300; color:#fff; line-height:1.3; margin:0;">Every car deserves a film shoot, not a photo in a car park.</h2>
+        <p style="color:rgba(255,255,255,0.55); line-height:1.7; margin:0; font-size:0.95rem;">We designed a full Content Capture system — brief, shoot day protocol, editing standards and distribution cuts for website, social, and email. The same quality bar, every time, every prize.</p>
+      </div>
+
+      <!-- 9-panel grid: Audi RS -->
+      <div style="margin-bottom:1rem;" data-reveal>
+        <div class="pg pg--wide" style="border-radius:6px; overflow:hidden;">
+          <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1eefabb1-3e6e-4f98-a9f6-e1709ea5ed32/RK_Images_1920x1080_5.jpg" alt="Audi RS — R Kings prize shoot" />
+        </div>
+      </div>
+
+      <!-- Row: Honda NSX + variety mosaic -->
+      <div class="g2" data-reveal>
+        <div class="pg pg--3-2" style="border-radius:6px; overflow:hidden;">
+          <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/9ba27fd3-fcb8-4b76-9461-ff72ffa04c85/RK_Images_1920x1080_6.jpg" alt="Honda NSX — R Kings prize shoot" />
+        </div>
+        <div class="pg pg--3-2" style="border-radius:6px; overflow:hidden;">
+          <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/da5f5221-4914-486d-8b50-fec468525f0a/RK_Images_1920x1080_7.jpg" alt="R Kings — prize portfolio" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Content guides row -->
+    <div class="container" style="margin-top:1.25rem;">
+      <div class="g2" data-reveal>
+        <div class="pg pg--3-2" style="border-radius:6px; overflow:hidden;">
+          <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/aa6f0d54-fd25-4707-a7c3-a4e3ce92faa9/RK_Images_1920x1080_24.jpg" alt="R Kings Content Capture Guide" />
+        </div>
+        <div class="pg pg--3-2" style="border-radius:6px; overflow:hidden;">
+          <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/fc38ff0c-45d4-444b-b87c-ea6d69793c71/RK_Images_1920x1080_NEW2.jpg" alt="R Kings Digital Experience Guide" />
+        </div>
+      </div>
+      <p style="font-size:0.8rem; color:rgba(255,255,255,0.3); margin-top:0.75rem; letter-spacing:0.04em;">R Kings Content Capture Guide (left) and Digital Experience Guide (right) — frameworks we built to govern every shoot and every digital asset.</p>
+    </div>
+  </section>
+
+  <!-- ── CHALLENGES ── -->
+  <section class="s-grey">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1.6fr; gap:5rem; align-items:start;">
+        <div data-reveal>
+          <span class="section-label">Five challenges</span>
+          <h2 style="font-family:'Source Serif 4',serif; font-size:clamp(1.5rem,2.8vw,2.1rem); font-weight:300; color:var(--navy); line-height:1.35; margin-bottom:1rem;">The problems that kept stacking up.</h2>
+          <p style="color:var(--mid-grey); line-height:1.7; font-size:0.95rem;">When you're growing fast, the cracks don't show one at a time. They all appear together — and usually at the worst possible moment.</p>
+        </div>
+        <ul class="challenge-list" data-reveal>
+          <li class="challenge-item">
+            <span class="challenge-dot"></span>
+            <p><strong>A brand indistinguishable from the competition.</strong> Slick prizes, but the visual identity and tone of voice didn't justify the premium positioning or inspire long-term loyalty.</p>
+          </li>
+          <li class="challenge-item">
+            <span class="challenge-dot"></span>
+            <p><strong>A platform that buckled under peak load.</strong> Draw windows brought thousands of simultaneous transactions. Checkout errors, slow pages, and failed payments during the moments that mattered most.</p>
+          </li>
+          <li class="challenge-item">
+            <span class="challenge-dot"></span>
+            <p><strong>Email and SMS that ignored how competitions actually work.</strong> Generic basket abandonment at X hours made no sense when the real urgency was the draw end time — 2 hours to go is everything; 6 hours doesn't matter.</p>
+          </li>
+          <li class="challenge-item">
+            <span class="challenge-dot"></span>
+            <p><strong>No security posture.</strong> No bug bounty programme, no defined incident response protocol, no structured approach to responsible disclosure or active threat monitoring at scale.</p>
+          </li>
+          <li class="challenge-item">
+            <span class="challenge-dot"></span>
+            <p><strong>Prize content with no production standard.</strong> Different phones, different locations, different lighting — no brief, no consistency, no guide for what a Kings-quality shoot actually looked like.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT WE DID ── -->
+  <section class="s-ink">
+    <div class="container">
+      <span class="section-label section-label--light" data-reveal>What we did</span>
+      <h2 style="font-family:'Source Serif 4',serif; font-size:clamp(1.6rem,3vw,2.4rem); font-weight:300; color:#fff; line-height:1.3; max-width:700px; margin-bottom:0;" data-wipe>Four workstreams.<br>One platform that held together.</h2>
+
+      <div class="svc-grid" data-reveal>
+
+        <div class="svc-card">
+          <h3>Strategy &amp; Brand Positioning</h3>
+          <p class="svc-problem">The competition market races to the bottom on price. R Kings' brand wasn't giving customers a reason to pay more, come back, or trust the draw.</p>
+          <p class="svc-solution">Led a full strategic rebrand — market positioning, audience segmentation, tone of voice, and a complete Digital Experience Guide that set the standard for every touchpoint from the website to the prize shoot floor.</p>
+        </div>
+
+        <div class="svc-card">
+          <h3>Platform Engineering at Scale</h3>
+          <p class="svc-problem">The Laravel-built platform had no autoscaling. Simultaneous peak transactions during draws caused checkout failures. No PCI-DSS governance, no security protocol, no defined response to breach or disclosure.</p>
+          <p class="svc-solution">Rebuilt the architecture with autoscaling infrastructure, multi-gateway PCI-DSS compliant payments (PayPal, Visa, Mastercard, Apple Pay, Google Pay), a formal bug bounty programme and a documented hack response protocol for the team.</p>
+        </div>
+
+        <div class="svc-card">
+          <h3>Email &amp; SMS Automation</h3>
+          <p class="svc-problem">Email triggers were based on time-in-basket. In a competition business, that's the wrong signal entirely — the draw end time is the urgency. Campaigns weren't segmented, weren't personalised, and weren't driving re-entry.</p>
+          <p class="svc-solution">Built a full Klaviyo system with 40+ automated flows. Draw end-time triggers at 72h, 24h, and 2h to close. Segmented journeys for new users, re-engagers, and winners. SMS alerts for draw day. Every flow mapped, tested, and optimised against open and conversion rates.</p>
+        </div>
+
+        <div class="svc-card">
+          <h3>Videography &amp; Content Production</h3>
+          <p class="svc-problem">Prize shoots were inconsistent — different equipment, locations, and quality depending on who turned up. Content wasn't cut for platform, meaning one shoot rarely produced assets for web, email, TikTok, and Facebook simultaneously.</p>
+          <p class="svc-solution">Designed a Content Capture Guide and production framework: shoot brief, location brief, presenter notes, lighting standards, and multi-format delivery specs. Every shoot now produces a full asset library cut for every channel from a single production day.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SCALE BAND ── -->
+  <section class="s-charcoal">
+    <div class="container">
+      <span class="section-label section-label--light" data-reveal>Built for this</span>
+      <div class="scale-grid" data-reveal>
+        <div class="scale-item">
+          <p class="scale-num">6,000+</p>
+          <p class="scale-label">Verified winners</p>
+        </div>
+        <div class="scale-item">
+          <p class="scale-num">40+</p>
+          <p class="scale-label">Klaviyo automated flows</p>
+        </div>
+        <div class="scale-item">
+          <p class="scale-num">6</p>
+          <p class="scale-label">Payment gateways, PCI-DSS</p>
+        </div>
+        <div class="scale-item">
+          <p class="scale-num">↑ YoY</p>
+          <p class="scale-label">Revenue, year on year</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EMAIL SYSTEM SHOWCASE ── -->
+  <section class="s-dark">
+    <div class="container">
+      <span class="section-label section-label--light" data-reveal>Intelligent automation</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:end; margin-bottom:2.5rem;" data-reveal>
+        <h2 style="font-family:'Source Serif 4',serif; font-size:clamp(1.5rem,3vw,2.2rem); font-weight:300; color:#fff; line-height:1.3; margin:0;">The draw ends in two hours.<br><em style="color:var(--rk-amber); font-style:normal;">The email just landed.</em></h2>
+        <p style="color:rgba(255,255,255,0.55); line-height:1.7; margin:0; font-size:0.95rem;">Standard e-commerce abandonment logic is meaningless in a competition business. We rebuilt the entire trigger system around draw end times — so urgency is real, the timing is precise, and the message matches exactly where the customer is in their decision.</p>
+      </div>
+
+      <!-- Email journey map full width -->
+      <div class="pg pg--wide" style="border-radius:8px; overflow:hidden; margin-bottom:1rem;" data-reveal>
+        <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/bfb5f713-1d75-41c9-8b97-0899f1b83867/RK_Images_1920x1080_18.jpg" alt="R Kings email journey architecture" />
+      </div>
+
+      <!-- Klaviyo showcase -->
+      <div class="pg" style="border-radius:8px; overflow:hidden; margin-bottom:1rem; aspect-ratio:16/7;" data-reveal>
+        <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/d90cf9b1-2a62-429f-afe1-3899e63131e9/RK_Images_1920x1080_19.jpg" alt="R Kings Klaviyo email system" style="width:100%; height:100%; object-fit:cover;" />
+      </div>
+
+      <!-- Templates wall -->
+      <div class="pg pg--wide" style="border-radius:8px; overflow:hidden;" data-reveal>
+        <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/b3819b2b-70aa-444c-930f-6fd074856dc3/RK_Images_1920x1080_17.jpg" alt="R Kings email template library" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PLATFORM & PAYMENTS ── -->
+  <section class="s-white">
+    <div class="container">
+      <span class="section-label" data-reveal>Platform &amp; Payments</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;" data-reveal>
+        <div>
+          <h2 style="font-family:'Source Serif 4',serif; font-size:clamp(1.5rem,2.8vw,2.2rem); font-weight:300; color:var(--navy); line-height:1.35; margin-bottom:1.25rem;">Thirty thousand people entering. Checkout has to hold.</h2>
+          <p style="color:var(--mid-grey); line-height:1.75; margin-bottom:1rem;">We rebuilt the transaction layer from the ground up — autoscaling infrastructure so peak draw windows don't take the site down, multi-gateway payment processing with full PCI-DSS compliance, and real-time order reconciliation that tracks every entry against every draw.</p>
+          <p style="color:var(--mid-grey); line-height:1.75; margin-bottom:1rem;">On top of that, a formal bug bounty programme to create a responsible disclosure channel, and a documented security incident protocol so the team knew exactly what to do if something went wrong — not scrambling in the moment.</p>
+          <p style="color:var(--mid-grey); line-height:1.75;">The UX side was equally considered: basket design, checkout flow, Instant Win experience variants — all mapped in Figma, tested with real users, then built into the platform.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+          <div class="pg pg--3-2" style="border-radius:8px; overflow:hidden;">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/b3266d9a-0d98-45e5-afde-5101609281a9/RK_Images_1920x1080_20.jpg" alt="R Kings payment gateway — Payment successful" />
+          </div>
+          <div class="pg pg--3-2" style="border-radius:8px; overflow:hidden;">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/7f79e0fd-0e29-4015-baa3-b11ae9e4225c/RK_Images_1920x1080_14.jpg" alt="R Kings Instant Win UX — Figma design" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DIGITAL EXPERIENCE ── -->
+  <section class="s-grey">
+    <div class="container">
+      <span class="section-label" data-reveal>The digital experience</span>
+      <p style="font-family:'Source Serif 4',serif; font-size:clamp(1.3rem,2.5vw,1.9rem); font-weight:300; color:var(--navy); line-height:1.4; max-width:700px; margin-bottom:3rem;" data-reveal>Mobile-first, competition-first. A website that works as hard as the prizes deserve.</p>
+      <div class="g3" data-reveal>
+        <div class="pg pg--3-2" style="border-radius:8px; overflow:hidden;">
+          <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/a36cb2e3-98a7-49b9-8206-4992f1513f90/RK_Images_1920x1080_9.jpg" alt="R Kings mobile website" />
+        </div>
+        <div class="pg pg--3-2" style="border-radius:8px; overflow:hidden;">
+          <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/23cd4950-9d40-4cb3-be5d-b42bcce677fc/RK_Images_1920x1080_8.jpg" alt="R Kings website on laptop" />
+        </div>
+        <div class="pg pg--3-2" style="border-radius:8px; overflow:hidden;">
+          <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/6410545a-8c37-4d0d-a931-7a54adca2f00/RK_Images_1920x1080_10.jpg" alt="R Kings basket — tablet" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BREADTH CALLOUT ── -->
+  <div class="breadth-band">
+    <div class="container">
+      <p class="breadth-text" data-reveal>
+        <em>brand strategy, platform engineering, autoscaling infrastructure, PCI-DSS payments, a bug bounty programme, 40+ email flows triggered by draw end time, a videography production system</em> — and the protocols that hold it all together when the draw goes live.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── SEAMLESS STRIP ── -->
+  <div class="g-strip" data-reveal>
+    <div class="pg pg--sq">
+      <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/5dc6b374-e773-4d00-b502-e4edf60c7508/RK_Images_1920x1080_3.jpg" alt="R Kings — Lamborghini prize" />
+    </div>
+    <div class="pg pg--sq">
+      <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/0664d6bb-4052-4629-96ff-36f15658b689/RK_Images_1920x1080_26.jpg" alt="R Kings HQ" />
+    </div>
+    <div class="pg pg--sq">
+      <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/6f5572b3-9c5d-4217-9aad-764aa7d6b409/RK_Images_1920x1080_NEW.jpg" alt="R Kings brand — billboard" />
+    </div>
+    <div class="pg pg--sq">
+      <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/b70ce6fe-f393-4be5-bea4-a69e45050172/RK_Images_1920x1080_13.jpg" alt="R Kings checkout" />
+    </div>
+  </div>
+
+  <!-- ── FACTS STRIP ── -->
+  <div class="facts-strip">
+    <div class="facts-inner">
+      <div class="fact-item">
+        <p class="fact-num">6,000+</p>
+        <p class="fact-label">Verified winners</p>
+      </div>
+      <div class="fact-item">
+        <p class="fact-num">40+</p>
+        <p class="fact-label">Automated email flows</p>
+      </div>
+      <div class="fact-item">
+        <p class="fact-num">6</p>
+        <p class="fact-label">Payment gateways</p>
+      </div>
+      <div class="fact-item">
+        <p class="fact-num">2h</p>
+        <p class="fact-label">Draw-end trigger window</p>
+      </div>
+      <div class="fact-item">
+        <p class="fact-num">↑ YoY</p>
+        <p class="fact-label">Year-on-year revenue</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── OUTCOMES ── -->
+  <section class="s-white">
+    <div class="container">
+      <span class="section-label" data-reveal>Outcomes</span>
+      <div class="outcomes-grid" data-reveal>
+        <div class="outcome-card">
+          <p class="outcome-num">↑ YoY</p>
+          <p class="outcome-title">Revenue, every year</p>
+          <p class="outcome-desc">Year-on-year revenue growth across the partnership. Not a one-time uplift — a platform that compounds as systems improve and audience scales.</p>
+        </div>
+        <div class="outcome-card">
+          <p class="outcome-num">Zero</p>
+          <p class="outcome-title">Checkout failures at draw</p>
+          <p class="outcome-desc">Autoscaling architecture and multi-gateway payment processing eliminated the checkout failures that previously occurred during peak draw windows.</p>
+        </div>
+        <div class="outcome-card">
+          <p class="outcome-num">Premium</p>
+          <p class="outcome-title">A brand worth trusting</p>
+          <p class="outcome-desc">A consistent brand, a production-standard content system, and a customer experience that positions R Kings above the noise — not just another competition site.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QUOTE BLOCK ── -->
+  <div class="quote-block">
+    <div class="container">
+      <blockquote data-wipe>"They redesigned the entire site, overhauled our digital marketing and continue to maintain it. Our results have been going up year-on-year."</blockquote>
+      <p class="quote-attr">
+        <strong>Mark Weir</strong>
+        Founder &amp; Managing Director, R Kings Competitions
+      </p>
+    </div>
+  </div>
+
+  <!-- ── WORK NAV ── -->
+  <div class="work-nav">
+    <a href="work-aviary.html">
+      <span class="work-nav-label">← Previous</span>
+      <span class="work-nav-title">The Aviary Floral</span>
+    </a>
+    <a href="work-glentoran.html">
+      <span class="work-nav-label">Next →</span>
+      <span class="work-nav-title">Glentoran FC</span>
+    </a>
+  </div>
+
+  <!-- ── CTA ── -->
+  <div class="cta-band">
+    <div class="container">
+      <span class="label label--light">Work with us</span>
+      <h2>Scale without the stress.</h2>
+      <p>If your platform needs to hold together under pressure, let's talk.</p>
+      <a href="contact.html" class="btn btn-white">Start the conversation</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Astutely</a>
+        <p>A digital agency building brand, web, marketing and systems on a foundation of clarity.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#brand">Brand &amp; Strategy</a></li>
+          <li><a href="services.html#web">Web Design &amp; Build</a></li>
+          <li><a href="services.html#marketing">Digital Marketing</a></li>
+          <li><a href="services.html#content">Content &amp; Creative</a></li>
+          <li><a href="services.html#systems">Systems &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Start</h5>
+        <ul>
+          <li><a href="contact.html">Start a project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Astutely. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media (max-width: 900px) {
+    .responsive-2col { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+  }
+</style>
+
+</body>
+</html>

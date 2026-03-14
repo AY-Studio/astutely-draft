@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age NI – Astutely Work</title>
+  <meta name="description" content="How Astutely helped Age NI improve SEO performance and user experience across their website — practical support for a charity team doing meaningful work." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="animations.js" defer></script>
+  <script src="cookies.js" defer></script>
+  <noscript><style>.hero-content > * { opacity: 1 !important; transform: none !important; } [data-reveal],[data-wipe] { opacity: 1 !important; transform: none !important; clip-path: none !important; }</style></noscript>
+  <style>
+    /* ── Age NI brand tokens ── */
+    :root {
+      --ageni-pink:  #e31b8c;
+      --ageni-blue:  #005eb8;
+      --ageni-dark:  #1a2744;
+      --ageni-ink:   #0f1a30;
+      --ageni-light: #f0f5fb;
+      --ageni-warm:  #f8f4f0;
+    }
+
+    /* ── Case hero ── */
+    .case-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+      overflow: hidden;
+    }
+    .case-hero-content {
+      background: var(--ageni-ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 5rem 3.5rem 5rem max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+      position: relative;
+      overflow: hidden;
+    }
+    .case-hero-content::before {
+      content: '';
+      position: absolute;
+      bottom: -30px; right: -40px;
+      width: 380px; height: 380px;
+      background: url('https://www.ageuk.org.uk/globalassets/age-ni/media/logos/age-ni-lll-logo-digital.png') center/contain no-repeat;
+      opacity: 0.05;
+      pointer-events: none;
+      filter: brightness(0) invert(1);
+    }
+    .case-hero-content::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--ageni-pink);
+    }
+    .case-hero-image {
+      overflow: hidden;
+      position: relative;
+      background: var(--ageni-light);
+    }
+    .case-hero-image .img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      aspect-ratio: unset; border-radius: 0;
+    }
+
+    /* ── Meta strip ── */
+    .case-meta-strip {
+      display: flex; gap: 3rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 3rem 0; flex-wrap: wrap; align-items: center;
+    }
+    .case-meta-item p:first-child {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--steel); margin-bottom: 0.3rem;
+    }
+    .case-meta-item p:last-child { font-size: 0.95rem; font-weight: 500; color: var(--navy); }
+    .case-meta-logo { margin-left: auto; }
+    .case-meta-logo img { height: 44px; width: auto; display: block; }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      border-left: 3px solid var(--ageni-pink);
+      padding: 1.25rem 1.75rem;
+      margin: 2.5rem 0;
+      background: var(--ageni-warm);
+    }
+    .pull-quote p {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.2rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.6;
+      margin: 0 0 0.75rem;
+    }
+    .pull-quote cite { font-size: 0.78rem; color: var(--steel); font-style: normal; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* ── Full-bleed ── */
+    .full-bleed { width: 100%; overflow: hidden; }
+    .full-bleed img { width: 100%; height: 55vh; object-fit: cover; display: block; }
+
+    /* ── Section utilities ── */
+    .s-white  { background: #fff; padding: 5rem 0; }
+    .s-light  { background: var(--ageni-light); padding: 5rem 0; }
+    .s-warm   { background: var(--ageni-warm); padding: 5rem 0; }
+    .s-grey   { background: #f2f2ef; padding: 5rem 0; }
+    .s-dark   { background: var(--ageni-dark); padding: 5rem 0; }
+    .s-ink    { background: var(--ageni-ink); padding: 5rem 0; }
+    .s-blue   { background: var(--ageni-blue); padding: 5rem 0; }
+
+    .section-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--steel); margin-bottom: 1rem; }
+    .section-label--light { color: rgba(255,255,255,0.45); }
+
+    /* ── Photo grid ── */
+    .pg { overflow: hidden; }
+    .pg img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .pg:hover img { transform: scale(1.03); }
+    .pg--sq   { aspect-ratio: 1/1; }
+    .pg--wide { aspect-ratio: 16/9; }
+    .pg--3-2  { aspect-ratio: 3/2; }
+    .pg--tall { aspect-ratio: 3/4; }
+
+    .g2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
+    .g3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+    .g-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+    .g-2-1  { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; }
+    .g-1-2  { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; }
+
+    /* ── Challenge list ── */
+    .challenge-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; margin-top: 2rem; }
+    .challenge-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.1rem 1.4rem; background: #fff; border: 1px solid #e8e7e3; border-radius: 6px; }
+    .challenge-dot  { width: 10px; height: 10px; border-radius: 50%; background: var(--ageni-pink); flex-shrink: 0; margin-top: 5px; }
+    .challenge-item p { font-size: 0.95rem; color: var(--navy); line-height: 1.5; margin: 0; }
+    .challenge-item strong { color: var(--navy); }
+
+    /* ── Service cards ── */
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem; }
+    .svc-card { background: rgba(255,255,255,0.06); border-radius: 8px; padding: 2rem; border-top: 3px solid var(--ageni-pink); }
+    .svc-card h3 { font-family: 'Source Serif 4', serif; font-size: 1.15rem; font-weight: 400; color: #fff; margin-bottom: 1.25rem; line-height: 1.35; }
+    .svc-problem, .svc-solution { font-size: 0.875rem; line-height: 1.65; margin-bottom: 0.85rem; }
+    .svc-problem  { color: rgba(255,255,255,0.5); }
+    .svc-solution { color: rgba(255,255,255,0.85); }
+    .svc-problem::before  { content: 'Problem — '; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ageni-pink); display: block; margin-bottom: 0.35rem; }
+    .svc-solution::before { content: 'Response — '; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); display: block; margin-bottom: 0.35rem; }
+
+    /* ── Breadth callout ── */
+    .breadth-band { background: var(--ageni-pink); padding: 4.5rem 0; }
+    .breadth-text {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.45;
+      max-width: 860px;
+    }
+    .breadth-text em { font-style: normal; opacity: 0.75; }
+
+    /* ── Facts strip ── */
+    .facts-strip { background: var(--ageni-ink); border-top: 1px solid rgba(255,255,255,0.06); }
+    .facts-inner { display: flex; flex-wrap: wrap; }
+    .fact-item { flex: 1 1 180px; padding: 2.5rem 2rem; border-right: 1px solid rgba(255,255,255,0.08); text-align: center; }
+    .fact-item:last-child { border-right: none; }
+    .fact-num  { font-family: 'Source Serif 4', serif; font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 300; color: var(--ageni-pink); line-height: 1; margin-bottom: 0.4rem; }
+    .fact-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+    /* ── Outcomes ── */
+    .outcomes-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .outcome-card { border-top: 3px solid var(--ageni-pink); padding-top: 1.75rem; }
+    .outcome-num  { font-family: 'Source Serif 4', serif; font-size: 2.2rem; font-weight: 300; color: var(--navy); margin-bottom: 0.4rem; line-height: 1; }
+    .outcome-title { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+    .outcome-desc  { font-size: 0.88rem; color: var(--mid-grey); line-height: 1.65; }
+
+    /* ── Quote block ── */
+    .quote-block {
+      background: var(--ageni-dark);
+      padding: 6rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-block::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 440px; height: 440px;
+      background: url('https://www.ageuk.org.uk/globalassets/age-ni/media/logos/age-ni-lll-logo-digital.png') center/contain no-repeat;
+      opacity: 0.06;
+      pointer-events: none;
+      filter: brightness(0) invert(1);
+    }
+    .quote-block blockquote {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1.2rem,2.5vw,1.8rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.6;
+      max-width: 780px;
+      margin: 0 auto 2rem;
+      position: relative; z-index: 1;
+    }
+    .quote-attr { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); position: relative; z-index: 1; }
+    .quote-attr strong { color: var(--ageni-pink); display: block; margin-bottom: 0.25rem; font-size: 0.85rem; }
+
+    /* ── Work nav ── */
+    .work-nav { border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; }
+    .work-nav a { padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: 0.35rem; text-decoration: none; transition: background 0.2s; }
+    .work-nav a:hover { background: #f7f6f3; }
+    .work-nav a:first-child { border-right: 1px solid var(--border); }
+    .work-nav a:last-child { text-align: right; }
+    .work-nav-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel); }
+    .work-nav-title { font-family: 'Source Serif 4', serif; font-size: 1.05rem; color: var(--navy); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .case-hero { grid-template-columns: 1fr; min-height: auto; }
+      .case-hero-content { padding: 3.5rem 1.5rem; min-height: 60vw; }
+      .case-hero-image { min-height: 55vw; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .outcomes-grid { grid-template-columns: 1fr; }
+      .work-nav { grid-template-columns: 1fr; }
+      .work-nav a:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+      .work-nav a:last-child { text-align: left; }
+      .r2col { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    }
+    @media (max-width: 600px) {
+      .g2,.g3 { grid-template-columns: 1fr; }
+      .g-2-1, .g-1-2 { grid-template-columns: 1fr; }
+      .g-strip { grid-template-columns: repeat(2,1fr); }
+      .facts-inner { flex-direction: column; }
+      .fact-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .case-meta-strip { gap: 1.5rem; }
+      .case-meta-logo { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Astutely</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html" class="nav-cta">Start a project</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <div class="case-hero">
+    <div class="case-hero-content">
+      <p class="section-label section-label--light" style="margin-bottom:1.5rem;" data-reveal>SEO · UX · Digital Support</p>
+      <h1 style="font-family:'Source Serif 4',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:300; color:#fff; line-height:1.15; margin-bottom:1.25rem;" data-wipe>Age NI.</h1>
+      <p style="font-size:1.05rem; color:rgba(255,255,255,0.6); line-height:1.65; max-width:380px;" data-reveal>Northern Ireland's leading charity for older people. An internal team doing important work — and a website that needed to perform as hard as they do.</p>
+    </div>
+    <div class="case-hero-image">
+      <div class="img">
+        <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/ead76eb7-9c03-415b-b6af-5d11cc7ae0de/AgeNI_Laptop-site-iPad_Man.png" alt="Older person using Age NI website on laptop" loading="eager" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ── META STRIP ── -->
+  <div class="container">
+    <div class="case-meta-strip">
+      <div class="case-meta-item">
+        <p>Client</p>
+        <p>Age NI</p>
+      </div>
+      <div class="case-meta-item">
+        <p>Sector</p>
+        <p>Charity · Older People</p>
+      </div>
+      <div class="case-meta-item">
+        <p>Services</p>
+        <p>SEO, UX Improvements, Digital Support</p>
+      </div>
+      <div class="case-meta-item">
+        <p>Location</p>
+        <p>Belfast, Northern Ireland</p>
+      </div>
+      <div class="case-meta-item">
+        <p>Engagement</p>
+        <p>Ongoing support</p>
+      </div>
+      <div class="case-meta-logo">
+        <img src="https://www.ageuk.org.uk/globalassets/age-ni/media/logos/age-ni-lll-logo-digital.png" alt="Age NI" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SITUATION ── -->
+  <section class="s-white" style="padding-top:0; padding-bottom:4rem;">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;" class="r2col">
+        <div data-reveal>
+          <span class="section-label">The Situation</span>
+          <h2 style="font-family:'Source Serif 4',serif; font-size:clamp(1.6rem,3vw,2.4rem); font-weight:300; color:var(--navy); line-height:1.3; margin-bottom:1.5rem;">Great content. Not enough people finding it.</h2>
+          <p style="color:var(--mid-grey); line-height:1.75; margin-bottom:1rem;">Age NI serves hundreds of thousands of older people across Northern Ireland — free advice, direct care, a helpline that's often the first call someone makes when things get hard. The information on their website is genuinely valuable. The challenge was making sure the people who needed it could actually find it.</p>
+          <p style="color:var(--mid-grey); line-height:1.75; margin-bottom:1rem;">They came to us with an internal team already in place — people who cared about the work and knew the audience deeply. What they needed was external expertise to help them understand how the site was performing in search, where the gaps were, and how to start closing them.</p>
+          <p style="color:var(--mid-grey); line-height:1.75;">On top of the SEO work, there was a UX question: a site serving older users — many of whom may be less confident with technology — needed to be genuinely easy to use, not just technically accessible.</p>
+        </div>
+        <div data-reveal>
+          <div class="pull-quote">
+            <p>"AY transformed our digital strategy with a cost-effective solution, saving us money and reducing maintenance."</p>
+            <cite>Niall Browne — Marketing Director, Age NI</cite>
+          </div>
+          <div class="pg pg--3-2" style="border-radius:6px; overflow:hidden; margin-top:1.25rem;">
+            <img src="https://www.ageni.org/siteassets/media/featured/1200/day-centre-clients.jpg" alt="Age NI day centre" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FULL-BLEED ── -->
+  <div class="full-bleed">
+    <img src="https://www.ageni.org/siteassets/media/hero/1200x383_big_chinwag_035.jpg" alt="Age NI — older people in the community" style="object-position: center 30%;" />
+  </div>
+
+  <!-- ── CHALLENGES ── -->
+  <section class="s-grey">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1.6fr; gap:5rem; align-items:start;" class="r2col">
+        <div data-reveal>
+          <span class="section-label">The challenges</span>
+          <h2 style="font-family:'Source Serif 4',serif; font-size:clamp(1.5rem,2.8vw,2.1rem); font-weight:300; color:var(--navy); line-height:1.35; margin-bottom:1rem;">Where the site was leaving people behind.</h2>
+          <p style="color:var(--mid-grey); line-height:1.7; font-size:0.95rem;">The problems weren't about content — Age NI had plenty of that. They were about visibility, structure, and making the experience work for the people who needed it most.</p>
+        </div>
+        <ul class="challenge-list" data-reveal>
+          <li class="challenge-item">
+            <span class="challenge-dot"></span>
+            <p><strong>SEO scores not reflecting the quality of the content.</strong> Pages covering important topics — benefits advice, care guidance, helpline services — weren't ranking where they should. The content was good; the technical and structural foundations were holding it back.</p>
+          </li>
+          <li class="challenge-item">
+            <span class="challenge-dot"></span>
+            <p><strong>Technical SEO issues across the site.</strong> Missing or inconsistent meta data, heading hierarchy issues, page speed gaps, and structured data that hadn't been set up to help search engines understand the content.</p>
+          </li>
+          <li class="challenge-item">
+            <span class="challenge-dot"></span>
+            <p><strong>Navigation not built around how older users actually browse.</strong> The site structure made sense from an organisational perspective, but not from a user one — especially for visitors who might be less confident online, arriving with an urgent question and needing a clear route to an answer.</p>
+          </li>
+          <li class="challenge-item">
+            <span class="challenge-dot"></span>
+            <p><strong>An internal team that needed support, not replacement.</strong> Age NI had capable people. The goal wasn't to take over — it was to work alongside them, build their understanding of what was driving performance, and give them the tools to keep improving after the engagement.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT WE DID ── -->
+  <section class="s-ink">
+    <div class="container">
+      <span class="section-label section-label--light" data-reveal>What we did</span>
+      <h2 style="font-family:'Source Serif 4',serif; font-size:clamp(1.6rem,3vw,2.4rem); font-weight:300; color:#fff; line-height:1.3; max-width:700px; margin-bottom:0;" data-wipe>Support the team.<br>Improve what matters.</h2>
+
+      <div class="svc-grid" data-reveal>
+        <div class="svc-card">
+          <h3>SEO Audit &amp; Strategy</h3>
+          <p class="svc-problem">No clear picture of where the site was underperforming, which pages mattered most, or how the site was structured from a search perspective.</p>
+          <p class="svc-solution">Carried out a full technical and content SEO audit — crawl analysis, keyword mapping to existing content, priority scoring, and a clear implementation roadmap the team could work from. Focus was on pages that drove the most real-world impact: helpline, benefits advice, care services.</p>
+        </div>
+
+        <div class="svc-card">
+          <h3>Technical SEO Implementation</h3>
+          <p class="svc-problem">Meta titles and descriptions were missing or generic across large sections of the site. Heading structure was inconsistent. Page speed and structured data hadn't been configured.</p>
+          <p class="svc-solution">Worked directly with the Age NI team to implement improvements across the site — writing meta data for priority pages, correcting heading hierarchies, configuring structured data for key service content, and addressing the technical issues surfaced in the audit.</p>
+        </div>
+
+        <div class="svc-card">
+          <h3>UX &amp; Usability Improvements</h3>
+          <p class="svc-problem">Navigation and content structure made sense organisationally, but not always for a user arriving from search with a specific, often urgent, need — particularly for an older audience less familiar with complex site structures.</p>
+          <p class="svc-solution">Reviewed the site from the user's perspective, identifying friction points in key journeys — finding the helpline, accessing benefits information, navigating to care services. Made targeted improvements to labelling, link structure, and page layout to reduce the number of steps between arrival and answer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHO IT SERVES ── -->
+  <section class="s-warm">
+    <div class="container">
+      <span class="section-label" data-reveal>Who it's for</span>
+      <p style="font-family:'Source Serif 4',serif; font-size:clamp(1.3rem,2.5vw,1.9rem); font-weight:300; color:var(--navy); line-height:1.45; max-width:680px; margin-bottom:3rem;" data-reveal>Older people across Northern Ireland. Using the website to find advice, access services, and connect with support that makes a real difference.</p>
+      <div class="g3" data-reveal>
+        <div class="pg pg--3-2" style="border-radius:8px; overflow:hidden;">
+          <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/7f8f6220-77ff-4036-bac1-5c3e7b3d2fea/Ageni_iPad_Olderpeople.jpg" alt="Older person using Age NI on tablet" />
+        </div>
+        <div class="pg pg--3-2" style="border-radius:8px; overflow:hidden;">
+          <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1719846575054-JOOEJ5691ADZ7CHX34DN/AgeNI_Website_Granny.png" alt="Two people looking at Age NI website on tablet" />
+        </div>
+        <div class="pg pg--3-2" style="border-radius:8px; overflow:hidden;">
+          <img src="https://www.ageni.org/siteassets/media/featured/1200/anne.jpg" alt="Age NI — older person" style="object-position: center top;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BREADTH CALLOUT ── -->
+  <div class="breadth-band">
+    <div class="container">
+      <p class="breadth-text" data-reveal>
+        <em>technical SEO audit, keyword mapping, meta data implementation, structured data, heading structure, page speed, navigation improvements</em> — and practical support for a team who already cared deeply about the people they served.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── FACTS STRIP ── -->
+  <div class="facts-strip">
+    <div class="facts-inner">
+      <div class="fact-item">
+        <p class="fact-num">↑</p>
+        <p class="fact-label">SEO scores across key pages</p>
+      </div>
+      <div class="fact-item">
+        <p class="fact-num">Charity</p>
+        <p class="fact-label">Sector experience</p>
+      </div>
+      <div class="fact-item">
+        <p class="fact-num">Team</p>
+        <p class="fact-label">Embedded support model</p>
+      </div>
+      <div class="fact-item">
+        <p class="fact-num">Ongoing</p>
+        <p class="fact-label">Digital partnership</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── OUTCOMES ── -->
+  <section class="s-white">
+    <div class="container">
+      <span class="section-label" data-reveal>Outcomes</span>
+      <div class="outcomes-grid" data-reveal>
+        <div class="outcome-card">
+          <p class="outcome-num">Better scores</p>
+          <p class="outcome-title">SEO performance across key pages</p>
+          <p class="outcome-desc">Priority pages — helpline, benefits advice, care services — improved in technical SEO scoring and search visibility, getting the right content in front of the people looking for it.</p>
+        </div>
+        <div class="outcome-card">
+          <p class="outcome-num">Clearer paths</p>
+          <p class="outcome-title">Easier for the people who need it</p>
+          <p class="outcome-desc">Targeted UX improvements reduced friction on the most-used journeys — making the site more navigable for older users arriving with urgent, specific needs.</p>
+        </div>
+        <div class="outcome-card">
+          <p class="outcome-num">Stronger team</p>
+          <p class="outcome-title">Knowledge that stays</p>
+          <p class="outcome-desc">Working alongside the Age NI team rather than around them — building understanding of what drives performance and leaving them better equipped to keep improving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QUOTE BLOCK ── -->
+  <div class="quote-block">
+    <div class="container">
+      <blockquote data-wipe>"AY transformed our digital strategy with a cost-effective solution, saving us money and reducing maintenance."</blockquote>
+      <p class="quote-attr">
+        <strong>Niall Browne</strong>
+        Marketing Director, Age NI
+      </p>
+    </div>
+  </div>
+
+  <!-- ── WORK NAV ── -->
+  <div class="work-nav">
+    <a href="work-kbi.html">
+      <span class="work-nav-label">← Previous</span>
+      <span class="work-nav-title">Kickboxing Ireland</span>
+    </a>
+    <a href="work-seacourt.html">
+      <span class="work-nav-label">Next →</span>
+      <span class="work-nav-title">Seacourt Print Workshop</span>
+    </a>
+  </div>
+
+  <!-- ── CTA ── -->
+  <div class="cta-band">
+    <div class="container">
+      <span class="label label--light">Work with us</span>
+      <h2>Support that fits your team.</h2>
+      <p>Whether you need an audit, implementation, or an ongoing partner — we work the way that suits you.</p>
+      <a href="contact.html" class="btn btn-white">Start the conversation</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Astutely</a>
+        <p>A digital agency building brand, web, marketing and systems on a foundation of clarity.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#brand">Brand &amp; Strategy</a></li>
+          <li><a href="services.html#web">Web Design &amp; Build</a></li>
+          <li><a href="services.html#marketing">Digital Marketing</a></li>
+          <li><a href="services.html#content">Content &amp; Creative</a></li>
+          <li><a href="services.html#systems">Systems &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Start</h5>
+        <ul>
+          <li><a href="contact.html">Start a project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Astutely. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

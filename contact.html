@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start a Project – Astutely Digital Agency</title>
+  <meta name="description" content="Start a project with Astutely. Tell us what you're building and we'll come back with an honest view on how we can help." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="animations.js" defer></script>
+  <script src="cookies.js" defer></script>
+  <noscript><style>.hero-content > * { opacity: 1 !important; transform: none !important; } [data-reveal],[data-wipe] { opacity: 1 !important; transform: none !important; clip-path: none !important; }</style></noscript>
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-sidebar { position: sticky; top: 84px; }
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Astutely</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html" class="nav-cta active">Start a project</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-content">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="label">Start a project</span>
+      <h1 data-wipe>Tell us what you're building.</h1>
+      <p class="lead" style="margin-top: 1.25rem;">We'll read your message carefully and come back within two business days with an honest view on whether and how we can help.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="contact-layout">
+
+        <div class="contact-sidebar">
+          <div class="img img--3-2" data-reveal style="border-radius: 6px; margin-bottom: 2.5rem;">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1650617876787-XQL3RLFCLIZKBSDJNRTS/ay-office2.png" alt="Astutely team" />
+          </div>
+          <span class="label">What to expect</span>
+          <div class="process-step" data-reveal>
+            <span class="step-num">1</span>
+            <div class="step-text">
+              <h4>We read and respond</h4>
+              <p>Within two business days, you'll hear from us with questions or an initial view on how we can help.</p>
+            </div>
+          </div>
+          <div class="process-step" data-reveal>
+            <span class="step-num">2</span>
+            <div class="step-text">
+              <h4>A 45-minute call</h4>
+              <p>If there's a fit, we'll schedule a short call to understand the situation more deeply. A conversation, not a sales meeting.</p>
+            </div>
+          </div>
+          <div class="process-step" data-reveal>
+            <span class="step-num">3</span>
+            <div class="step-text">
+              <h4>A proposal</h4>
+              <p>If we both want to proceed, we'll send a concise proposal covering scope, approach, and investment.</p>
+            </div>
+          </div>
+          <div class="process-step" data-reveal>
+            <span class="step-num">4</span>
+            <div class="step-text">
+              <h4>We get to work</h4>
+              <p>Quickly, carefully, and with the full attention your project deserves.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onsubmit="handleSubmit(event)"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" required placeholder="Full name" />
+              </div>
+              <div class="form-group">
+                <label for="role">Your role</label>
+                <input type="text" id="role" name="role" placeholder="Founder, CMO, etc." />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" required placeholder="you@company.com" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Your company" />
+              </div>
+              <div class="form-group">
+                <label for="budget">Approximate budget</label>
+                <select id="budget" name="budget">
+                  <option value="" disabled selected>Select a range</option>
+                  <option>Under £10k</option>
+                  <option>£10k – £25k</option>
+                  <option>£25k – £50k</option>
+                  <option>£50k – £100k</option>
+                  <option>£100k+</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="services">What are you looking for help with?</label>
+              <select id="services" name="services">
+                <option value="" disabled selected>Select a service</option>
+                <option>Brand &amp; Strategy</option>
+                <option>Web Design &amp; Build</option>
+                <option>Digital Marketing</option>
+                <option>Content &amp; Creative</option>
+                <option>Systems &amp; Automation</option>
+                <option>The Astutely Reset</option>
+                <option>Multiple / not sure yet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="brief">Tell us about the project</label>
+              <textarea
+                id="brief"
+                name="brief"
+                rows="6"
+                required
+                placeholder="What are you trying to achieve? What's the current situation? What does success look like? The more context you give us, the better our response will be."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="timing">When are you looking to begin?</label>
+              <select id="timing" name="timing">
+                <option value="" disabled selected>Select a timeframe</option>
+                <option>As soon as possible</option>
+                <option>Within a month</option>
+                <option>1–3 months</option>
+                <option>3–6 months</option>
+                <option>Exploring, no fixed timeline</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; text-align: center; font-size: 1rem; padding: 1rem;">Send your brief</button>
+            <p style="font-size: 0.78rem; color: var(--mid-grey); margin-top: 1rem; text-align: center;">We respond within two business days. Your information is never shared or sold.</p>
+          </form>
+
+          <div id="form-success" style="display: none; padding: 3rem 2rem; background: var(--grey); border-radius: 6px; text-align: center;">
+            <h3 style="margin-bottom: 0.75rem;">Brief received.</h3>
+            <p>Thank you for getting in touch. We'll read your message carefully and respond within two business days.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Astutely</a>
+        <p>A digital agency building brand, web, marketing and systems on a foundation of clarity.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#brand">Brand &amp; Strategy</a></li>
+          <li><a href="services.html#web">Web Design &amp; Build</a></li>
+          <li><a href="services.html#marketing">Digital Marketing</a></li>
+          <li><a href="services.html#content">Content &amp; Creative</a></li>
+          <li><a href="services.html#systems">Systems &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="reset.html">The Reset</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Start</h5>
+        <ul>
+          <li><a href="contact.html">Start a project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Astutely. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString(),
+    })
+    .finally(() => {
+      form.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    });
+  }
+</script>
+
+</body>
+</html>

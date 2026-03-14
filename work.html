@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Work – Astutely Digital Agency</title>
+  <meta name="description" content="Selected projects from Astutely: brand, web, marketing and systems work for growing companies." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="animations.js" defer></script>
+  <script src="cookies.js" defer></script>
+  <noscript><style>.hero-content > * { opacity: 1 !important; transform: none !important; } [data-reveal],[data-wipe] { opacity: 1 !important; transform: none !important; clip-path: none !important; }</style></noscript>
+  <style>
+    /* Filter bar */
+    .filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .filter-btn {
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: none;
+      color: var(--dark-grey);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--navy);
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /* Masonry-like work grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.25rem;
+    }
+
+    .p-item { grid-column: span 6; border-radius: 6px; overflow: hidden; cursor: pointer; position: relative; }
+    .p-item--wide  { grid-column: span 8; }
+    .p-item--narrow { grid-column: span 4; }
+    .p-item--full  { grid-column: span 12; }
+    .p-item--third { grid-column: span 4; }
+
+    .p-item .img { display: block; transition: transform 0.4s ease; }
+    .p-item:hover .img { transform: scale(1.03); }
+
+    .p-item-info {
+      padding: 1rem 0 1.75rem;
+    }
+    .p-item-cat {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 0.35rem;
+    }
+    .p-item-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+
+    /* Case study detail strip */
+    .case-detail {
+      border-top: 1px solid var(--border);
+      padding: 5rem 0;
+    }
+    .case-detail-header {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+    .case-meta-list { list-style: none; }
+    .case-meta-list li {
+      font-size: 0.82rem;
+      color: var(--mid-grey);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+    }
+    .case-meta-list li strong { color: var(--navy); }
+    .case-result {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--steel);
+    }
+
+    @media (max-width: 900px) {
+      .p-item, .p-item--wide, .p-item--narrow, .p-item--third { grid-column: span 6; }
+      .p-item--full { grid-column: span 12; }
+    }
+    @media (max-width: 600px) {
+      .p-item, .p-item--wide, .p-item--narrow, .p-item--third, .p-item--full { grid-column: span 12; }
+      .case-detail-header { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Astutely</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html" class="nav-cta">Start a project</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-content">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="label">Selected Work</span>
+      <h1 data-wipe>Projects we're proud of.</h1>
+      <p class="lead" style="margin-top: 1.25rem;">A selection of brand, web, marketing, and systems work for companies across sectors.</p>
+    </div>
+  </section>
+
+  <section class="s-num" data-n="01">
+    <div class="container">
+
+      <!-- Filters -->
+      <div class="filter-bar">
+        <button class="filter-btn active">All work</button>
+        <button class="filter-btn">Brand &amp; Strategy</button>
+        <button class="filter-btn">Web Design &amp; Build</button>
+        <button class="filter-btn">Digital Marketing</button>
+        <button class="filter-btn">Content &amp; Creative</button>
+        <button class="filter-btn">Systems</button>
+      </div>
+
+      <!-- Portfolio grid -->
+      <div class="portfolio-grid">
+
+        <!-- Row 1: wide + narrow -->
+        <a href="work-glentoran.html" class="p-item p-item--wide" data-reveal>
+          <div class="img img--wide" style="border-radius: 6px;">
+            <img src="https://bunny-wp-pullzone-08ffyrom42.b-cdn.net/wp-content/uploads/2026/03/Glentoran-Winner-2-copy-scaled.jpg" alt="Glentoran FC" />
+          </div>
+          <div class="p-item-info">
+            <p class="p-item-cat">Web &amp; Digital · Sport</p>
+            <p class="p-item-title">Website, digital marketing and systems for Glentoran FC</p>
+          </div>
+        </a>
+        <a href="work-kbi.html" class="p-item p-item--narrow" data-reveal>
+          <div class="img img--portrait" style="border-radius: 6px;">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1714759123787-Q837421115GGD0B41M8E/KBI_CaseStudy_Visuals_master59.png" alt="Kickboxing Ireland brand project" />
+          </div>
+          <div class="p-item-info">
+            <p class="p-item-cat">Brand · Sport</p>
+            <p class="p-item-title">Brand identity and visual system for Kickboxing Ireland</p>
+          </div>
+        </a>
+
+        <!-- Row 2: three equal -->
+        <a href="work-ageni.html" class="p-item p-item--third" data-reveal>
+          <div class="img img--3-2" style="border-radius: 6px;">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/ead76eb7-9c03-415b-b6af-5d11cc7ae0de/AgeNI_Laptop-site-iPad_Man.png" alt="Age NI digital strategy" />
+          </div>
+          <div class="p-item-info">
+            <p class="p-item-cat">Digital Strategy · Charity</p>
+            <p class="p-item-title">Digital strategy, SEO and analytics for Age NI</p>
+          </div>
+        </a>
+        <a href="work-aviary.html" class="p-item p-item--third" data-reveal>
+          <div class="img img--3-2" style="border-radius: 6px;">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1664396784771-8SVJLWKXFENO1YPZT877/IMG_20220908_093446.jpg" alt="The Aviary Floral project" />
+          </div>
+          <div class="p-item-info">
+            <p class="p-item-cat">Brand &amp; Content · Floral Design</p>
+            <p class="p-item-title">Brand identity, photography and launch for The Aviary Floral</p>
+          </div>
+        </a>
+
+        <!-- Row 3: full width cinematic -->
+        <div class="p-item p-item--full" data-reveal>
+          <div class="img img--cinema" style="border-radius: 6px;">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1650618957251-BH2WMIXDE61CSAEQN7UC/ay-strip.png" alt="Astutely studio" />
+          </div>
+          <div class="p-item-info">
+            <p class="p-item-cat">Brand &amp; Strategy · Agency</p>
+            <p class="p-item-title">Strategy, brand and systems for a growing digital agency</p>
+          </div>
+        </div>
+
+        <!-- Row 4: narrow + wide -->
+        <div class="p-item p-item--narrow" data-reveal>
+          <div class="img img--portrait" style="border-radius: 6px;">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1664397677158-P78ZGHZHBB3NS6JVCDGR/batch-45-hero.jpg" alt="Lowden Guitars project" />
+          </div>
+          <div class="p-item-info">
+            <p class="p-item-cat">Brand · Craftsmanship</p>
+            <p class="p-item-title">Brand refresh and digital presence for Lowden Guitars</p>
+          </div>
+        </div>
+        <a href="work-rkings.html" class="p-item p-item--wide" data-reveal>
+          <div class="img img--wide" style="border-radius: 6px;">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/5dc6b374-e773-4d00-b502-e4edf60c7508/RK_Images_1920x1080_3.jpg" alt="R Kings Competitions — green Lamborghini" />
+          </div>
+          <div class="p-item-info">
+            <p class="p-item-cat">Strategy · Platform · Email · Content</p>
+            <p class="p-item-title">Brand, platform engineering and scale for R Kings Competitions</p>
+          </div>
+        </a>
+
+        <!-- Row 5: two equal -->
+        <div class="p-item" data-reveal>
+          <div class="img img--3-2" style="border-radius: 6px;">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1664397609922-NNTW1KCTZTAJXCS7BA4O/Ed+-+Belfast049_EDIT2.JPG" alt="Sheeran Guitars project" />
+          </div>
+          <div class="p-item-info">
+            <p class="p-item-cat">Content &amp; Creative · Music</p>
+            <p class="p-item-title">Photography, content and web for Sheeran Guitars</p>
+          </div>
+        </div>
+        <div class="p-item" data-reveal>
+          <div class="img img--3-2" style="border-radius: 6px;">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1721211457819-H9Q2ZSEEFDTTC93LWUJL/Screenshot+2024-07-17+at+11.17.12.png" alt="Unique Plants project" />
+          </div>
+          <div class="p-item-info">
+            <p class="p-item-cat">Web &amp; Marketing · E-commerce</p>
+            <p class="p-item-title">Website redesign and growth marketing for Unique Plants</p>
+          </div>
+        </div>
+
+        <!-- Row 6: Seacourt + Camborne -->
+        <a href="work-seacourt.html" class="p-item p-item--wide" data-reveal>
+          <div class="img img--wide" style="border-radius: 6px;">
+            <img src="https://seacourtprintworkshop.com/wp-content/uploads/2025/01/bo9rlmy2hkhkjp5ermbt-1024x683.webp" alt="Seacourt Print Workshop" />
+          </div>
+          <div class="p-item-info">
+            <p class="p-item-cat">Brand &amp; Web · Print &amp; Arts</p>
+            <p class="p-item-title">Brand identity, website and community programme for Seacourt Print Workshop</p>
+          </div>
+        </a>
+        <a href="work-camborne.html" class="p-item p-item--narrow" data-reveal>
+          <div class="img img--portrait" style="border-radius: 6px;">
+            <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/04/PEB-Edited-scaled.jpg" alt="Camborne Town Council" />
+          </div>
+          <div class="p-item-info">
+            <p class="p-item-cat">Web &amp; Digital · Public Sector</p>
+            <p class="p-item-title">Website redesign and digital inclusion for Camborne Town Council</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured case study -->
+  <div class="case-detail">
+    <div class="container">
+      <span class="label">In depth</span>
+      <div class="case-detail-header">
+        <div>
+          <h2 data-wipe style="font-size: clamp(1.5rem, 2.5vw, 2rem); margin-bottom: 1.5rem;">A great club. A digital presence that wasn't keeping up.</h2>
+          <ul class="case-meta-list">
+            <li><span>Client</span><strong>Glentoran FC</strong></li>
+            <li><span>Sector</span><strong>Sport &amp; Community</strong></li>
+            <li><span>Services</span><strong>Web, Digital Marketing, Systems</strong></li>
+            <li><span>Duration</span><strong>4 months</strong></li>
+          </ul>
+          <div style="margin-top: 2rem;">
+            <p class="case-result">+41% ticket sales.<br><span style="font-size: 1rem; font-family: Inter, sans-serif; color: var(--mid-grey); font-weight: 400;">3× GlensTV growth. Built for mobile from the ground up.</span></p>
+          </div>
+          <div style="margin-top: 1.5rem;">
+            <a href="work-glentoran.html" class="btn btn-primary">Read the full case study</a>
+          </div>
+        </div>
+        <div>
+          <p class="lead" style="margin-bottom: 1.25rem;">Glentoran is one of Ireland's most decorated football clubs — 23 league titles, a rebuilt stadium, a social partnership doing genuine community work. But their digital presence had grown without direction, and it showed.</p>
+          <p style="margin-bottom: 1.25rem;">Fans looking for tickets ended up in the same navigation as commercial sponsors. The mobile experience — where most of their audience lives — was an afterthought. GlensTV, their own streaming platform, was barely discoverable.</p>
+          <p style="margin-bottom: 2rem;">We rebuilt the site around the fan first, restructured the content architecture for every audience segment, repositioned GlensTV as a core benefit, and integrated ticketing, loyalty, and supporter data into a single coherent system.</p>
+        </div>
+      </div>
+      <!-- Case images -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1rem;">
+        <div class="img img--wide" style="border-radius: 6px;"><img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1714759123787-Q837421115GGD0B41M8E/KBI_CaseStudy_Visuals_master59.png" alt="Glentoran FC digital project" /></div>
+        <div class="img img--wide" style="border-radius: 6px;"><img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1650618160184-D2BV1J5CJVHK487ODE0J/ay-office4.png" alt="Astutely studio" /></div>
+        <div class="img img--wide" style="border-radius: 6px;"><img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1650617876787-XQL3RLFCLIZKBSDJNRTS/ay-office2.png" alt="Astutely team" /></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="container">
+      <span class="label label--light">Work with us</span>
+      <h2>Your project could be next.</h2>
+      <p>Tell us what you're building and we'll tell you how we can help.</p>
+      <a href="contact.html" class="btn btn-white">Start the conversation</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Astutely</a>
+        <p>A digital agency building brand, web, marketing and systems on a foundation of clarity.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#brand">Brand &amp; Strategy</a></li>
+          <li><a href="services.html#web">Web Design &amp; Build</a></li>
+          <li><a href="services.html#marketing">Digital Marketing</a></li>
+          <li><a href="services.html#content">Content &amp; Creative</a></li>
+          <li><a href="services.html#systems">Systems &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="reset.html">The Reset</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Start</h5>
+        <ul>
+          <li><a href="contact.html">Start a project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Astutely. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Simple filter UI (visual only — JS filtering can be added with real data)
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

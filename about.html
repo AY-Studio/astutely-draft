@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – Astutely Digital Agency</title>
+  <meta name="description" content="Astutely is a digital agency that builds brand, web, marketing and systems on a foundation of clarity." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="animations.js" defer></script>
+  <script src="cookies.js" defer></script>
+  <noscript><style>.hero-content > * { opacity: 1 !important; transform: none !important; } [data-reveal],[data-wipe] { opacity: 1 !important; transform: none !important; clip-path: none !important; }</style></noscript>
+  <style>
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .team-member .img {
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .team-member h4 { margin-bottom: 0.2rem; font-size: 1rem; }
+    .team-member p  { font-size: 0.82rem; color: var(--mid-grey); }
+
+    @media (max-width: 900px) { .team-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 500px) { .team-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Astutely</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html" class="nav-cta">Start a project</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-content">
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="label">About Astutely</span>
+      <h1>A digital agency that believes clarity is a competitive advantage.</h1>
+      <p class="lead" style="margin-top: 1.25rem;">We help growing companies stand out, communicate clearly and scale with confidence, across brand, web, marketing, content and systems.</p>
+    </div>
+  </section>
+
+  <!-- Who we are -->
+  <section class="s-num" data-n="01">
+    <div class="container">
+      <div class="split">
+        <div>
+          <span class="label">Who we are</span>
+          <h2 data-wipe>Senior thinking. Hands-on delivery.</h2>
+          <p class="lead">Astutely is a small, senior team. We don't staff projects with graduates and manage them from a distance. The people who think about your project are the people who build it.</p>
+          <p class="mt-sm">That means experienced strategic thinking from day one, and no re-briefing someone who wasn't in the original meeting.</p>
+          <p class="mt-sm">We take a limited number of clients at any time. Not because we're exclusionist, but because quality requires focus and our clients deserve both.</p>
+          <div class="mt-md">
+            <a href="contact.html" class="btn btn-primary">Work with us</a>
+          </div>
+        </div>
+        <div class="split-image">
+          <div class="img img--portrait" style="border-radius: 6px;">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1650222407886-TWRZ518Z9BU5ZJJXPZAU/chairs.jpg" alt="Astutely studio" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Large image -->
+  <section style="padding-top: 0; padding-bottom: 0;">
+    <div class="container--wide">
+      <div class="img img--cinema img--overlay" style="border-radius: 6px;">
+        <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1650618957251-BH2WMIXDE61CSAEQN7UC/ay-strip.png" alt="Astutely studio" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach / philosophy -->
+  <section class="approach-band">
+    <div class="container">
+      <div class="approach-band-inner">
+        <div>
+          <span class="label label--light">Our approach</span>
+          <h2 data-wipe>We start by making sure the brief is right.</h2>
+          <p class="lead">Most digital projects fail not in execution but in definition. The brief was vague, the strategy was assumed, or the team wasn't aligned on what success looked like.</p>
+          <p style="color: rgba(250,251,252,0.65); margin-bottom: 2rem;">Astutely was founded to solve that problem. Before we design, build or market anything, we create clarity around positioning, audience, message and goals. That's what makes our execution so much more effective.</p>
+          <a href="reset.html" class="btn btn-outline-white">About the Reset</a>
+        </div>
+        <div class="pillar-list">
+          <div class="pillar-item" data-reveal>
+            <div class="pillar-dot"></div>
+            <div>
+              <h4>Clarity first, always</h4>
+              <p>We never start a project without understanding it. Every engagement, from a logo to a full digital transformation, begins with a clarity check.</p>
+            </div>
+          </div>
+          <div class="pillar-item" data-reveal>
+            <div class="pillar-dot"></div>
+            <div>
+              <h4>Diagnosis before prescription</h4>
+              <p>We don't template our thinking. We understand your specific business, market, and situation before we recommend anything.</p>
+            </div>
+          </div>
+          <div class="pillar-item" data-reveal>
+            <div class="pillar-dot"></div>
+            <div>
+              <h4>Built for your team to run</h4>
+              <p>Everything we deliver is structured so your team can own it, operate it and build on it for years.</p>
+            </div>
+          </div>
+          <div class="pillar-item" data-reveal>
+            <div class="pillar-dot"></div>
+            <div>
+              <h4>Honest, measured counsel</h4>
+              <p>We tell clients what they need to hear, not what they want to hear. And we do it calmly, without manufacturing urgency or drama.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="s-num" data-n="02">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 3rem;">
+        <div>
+          <span class="label">The team</span>
+          <h2>The people behind the work.</h2>
+        </div>
+      </div>
+      <div class="team-grid">
+        <div class="team-member" data-reveal>
+          <div class="img img--portrait">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/592d9df9-739f-4114-b682-a0c5630901d9/AY_RobertAnnett-Pink.jpg" alt="Robert Annett" />
+          </div>
+          <h4>Robert Annett</h4>
+          <p>Founder &amp; Managing Partner</p>
+        </div>
+        <div class="team-member" data-reveal>
+          <div class="img img--portrait">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/d0231026-18fe-4c73-9456-cc9daf750036/AY_RyanYoung-Pink.jpg" alt="Ryan Young" />
+          </div>
+          <h4>Ryan Young</h4>
+          <p>Creative Director</p>
+        </div>
+        <div class="team-member" data-reveal>
+          <div class="img img--portrait">
+            <img src="https://media.licdn.com/dms/image/v2/C5603AQErDYK1vDHyyg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1655979486403?e=1775088000&v=beta&t=X8zHvCg-r73Jh3dv30DKemHOgxEb-mdrbWZP3lfROAY" alt="Russell Lever" />
+          </div>
+          <h4>Russell Lever</h4>
+          <p>PR &amp; Marketing Director</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section style="background: var(--grey);">
+    <div class="container">
+      <span class="label">What clients say</span>
+      <h2 data-wipe style="margin-bottom: 3rem; max-width: 480px;">We measure success<br>by what clients say.</h2>
+      <div class="grid-3">
+        <div class="testimonial" data-reveal>
+          <blockquote>"They redesigned the entire site, overhauled our digital marketing and continue to maintain it. Our results have been going up year-on-year."</blockquote>
+          <p class="testimonial-author">Mark Weir <span>Founder &amp; MD, R Kings Competitions</span></p>
+        </div>
+        <div class="testimonial" data-reveal>
+          <blockquote>"Astutely understood that Seacourt isn't a product to be sold — it's a place to be felt. Everything they built communicates that. The brand, the site — it all finally looks like us."</blockquote>
+          <p class="testimonial-author">Emma Drury <span>Director, Seacourt Print Workshop</span></p>
+        </div>
+        <div class="testimonial" data-reveal>
+          <blockquote>"Instead of building a new WordPress site, they integrated us with the AgeUK platform, saving us money and reducing maintenance."</blockquote>
+          <p class="testimonial-author">Niall Browne <span>Marketing Director, Age NI</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="container">
+      <span class="label label--light">Work with us</span>
+      <h2>Let's build something together.</h2>
+      <p>Tell us about your project and we'll come back with an honest view on how we can help.</p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="contact.html" class="btn btn-white">Start a project</a>
+        <a href="work.html" class="btn btn-outline-white">See our work first</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Astutely</a>
+        <p>A digital agency building brand, web, marketing and systems on a foundation of clarity.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#brand">Brand &amp; Strategy</a></li>
+          <li><a href="services.html#web">Web Design &amp; Build</a></li>
+          <li><a href="services.html#marketing">Digital Marketing</a></li>
+          <li><a href="services.html#content">Content &amp; Creative</a></li>
+          <li><a href="services.html#systems">Systems &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="reset.html">The Reset</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Start</h5>
+        <ul>
+          <li><a href="contact.html">Start a project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Astutely. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
