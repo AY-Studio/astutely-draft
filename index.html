@@ -9,6 +9,137 @@
   <script src="animations.js" defer></script>
   <script src="cookies.js" defer></script>
   <noscript><style>.hero-content > * { opacity: 1 !important; transform: none !important; } [data-reveal],[data-wipe] { opacity: 1 !important; transform: none !important; clip-path: none !important; }</style></noscript>
+  <style>
+    /* ── Homepage hero overrides ──────────────────────────── */
+    .hero {
+      min-height: 90vh;
+      grid-template-columns: 58fr 42fr;
+    }
+
+    .hero-content {
+      background: #000;
+      justify-content: flex-end;
+      padding-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Oversized watermark letterform */
+    .hero-content::before {
+      content: 'A';
+      position: absolute;
+      bottom: -2.5rem; right: -1.5rem;
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(14rem, 24vw, 20rem);
+      font-weight: 600;
+      line-height: 1;
+      color: rgba(255,255,255,0.04);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Accent stripe — left edge */
+    .hero-content::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .hero-content .label {
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.8rem, 5.2vw, 4.8rem);
+      line-height: 0.93;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content .lead {
+      color: rgba(255,255,255,0.58);
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-hero-primary {
+      background: #fff;
+      color: #211E1C;
+      font-weight: 600;
+    }
+    .btn-hero-primary:hover {
+      background: rgba(255,255,255,0.88);
+      color: #211E1C;
+    }
+    .btn-hero-outline {
+      background: transparent;
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn-hero-outline:hover {
+      border-color: rgba(255,255,255,0.55);
+      color: #fff;
+    }
+
+    /* Agency stats strip at the base of the panel */
+    .hero-stats {
+      display: flex;
+      gap: 2.25rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+    }
+    .hstat-n {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.75rem;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1;
+      display: block;
+    }
+    .hstat-l {
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.3rem;
+      display: block;
+    }
+
+    /* "complexity" — chromatic aberration, subtly unsettled */
+    @keyframes complexity-glitch {
+      0%, 100% { text-shadow: -1px 0 rgba(255,80,80,0.18), 1px 0 rgba(80,140,255,0.18); }
+      50%       { text-shadow: -1.5px 0 rgba(255,80,80,0.14), 1.5px 0 rgba(80,140,255,0.14); }
+    }
+    .hero-complex {
+      font-style: italic;
+      display: inline-block;
+      animation: complexity-glitch 5s ease-in-out infinite;
+    }
+
+    /* "clarity" — luminous, unmistakable */
+    .hero-clarity {
+      font-style: italic;
+      background: linear-gradient(to bottom, transparent 55%, rgba(255,255,255,0.18) 55%);
+      text-shadow:
+        0 0 25px rgba(255,255,255,0.55),
+        0 0 60px rgba(255,255,255,0.25),
+        0 0 100px rgba(255,255,255,0.1);
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-content { padding-bottom: 3rem; }
+      .hero-content::before { font-size: 10rem; }
+      .hero-stats { gap: 1.5rem; margin-top: 2rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -33,12 +164,26 @@
   <!-- ── Hero ─────────────────────────────────────────────── -->
   <div class="hero">
     <div class="hero-content">
-      <span class="label">Digital Agency</span>
-      <h1>Digital that works. Clearly.</h1>
+      <span class="label">Digital Agency · Belfast</span>
+      <h1>When growth<br>creates <span class="hero-complex">complexity</span><br>we bring <span class="hero-clarity">clarity.</span></h1>
       <p class="lead">Brand, web, marketing and systems, designed with precision and built to perform. We help growing companies stand out, communicate clearly and scale with confidence.</p>
       <div class="btn-group">
-        <a href="work.html" class="btn btn-primary">See our work</a>
-        <a href="contact.html" class="btn btn-outline">Start a project</a>
+        <a href="work.html" class="btn btn-hero-primary">See our work</a>
+        <a href="contact.html" class="btn btn-hero-outline">Start a project</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="hstat-n">+41%</span>
+          <span class="hstat-l">Ticket sales — Glentoran</span>
+        </div>
+        <div>
+          <span class="hstat-n">2.4×</span>
+          <span class="hstat-l">Applications — Seacourt</span>
+        </div>
+        <div>
+          <span class="hstat-n">100%</span>
+          <span class="hstat-l">Season filled — The Aviary</span>
+        </div>
       </div>
     </div>
     <div class="hero-image">
@@ -177,6 +322,58 @@
           <div class="work-item-caption">
             <p class="work-item-meta">SEO · Digital Support · Charity</p>
             <p class="work-item-title">SEO and digital support for Age NI</p>
+          </div>
+        </a>
+        <a href="work-seacourt.html" class="work-item" data-reveal>
+          <div class="img img--3-2 img--overlay">
+            <img src="https://seacourtprintworkshop.com/wp-content/uploads/2025/01/bo9rlmy2hkhkjp5ermbt-1024x683.webp" alt="Seacourt Print Workshop" />
+          </div>
+          <div class="work-item-overlay">
+            <p class="work-item-meta">Brand &amp; Web · Print &amp; Arts</p>
+            <p class="work-item-title">Brand and website for Seacourt Print Workshop</p>
+          </div>
+          <div class="work-item-caption">
+            <p class="work-item-meta">Brand &amp; Web · Print &amp; Arts</p>
+            <p class="work-item-title">Brand and website for Seacourt Print Workshop</p>
+          </div>
+        </a>
+        <a href="work-aviary.html" class="work-item" data-reveal>
+          <div class="img img--3-2 img--overlay">
+            <img src="https://theaviaryfloral.com/cdn/shop/files/Banner003_1000x.jpg" alt="The Aviary Floral" />
+          </div>
+          <div class="work-item-overlay">
+            <p class="work-item-meta">Brand &amp; Content · Floral Design</p>
+            <p class="work-item-title">Brand, photography and website for The Aviary Floral</p>
+          </div>
+          <div class="work-item-caption">
+            <p class="work-item-meta">Brand &amp; Content · Floral Design</p>
+            <p class="work-item-title">Brand, photography and website for The Aviary Floral</p>
+          </div>
+        </a>
+        <a href="work-kbi.html" class="work-item" data-reveal>
+          <div class="img img--3-2 img--overlay">
+            <img src="https://images.squarespace-cdn.com/content/v1/6259deb1c94dc51a21935ea8/1714759123787-Q837421115GGD0B41M8E/KBI_CaseStudy_Visuals_master59.png" alt="Kickboxing Ireland" />
+          </div>
+          <div class="work-item-overlay">
+            <p class="work-item-meta">Brand &amp; Digital · Sport</p>
+            <p class="work-item-title">Visual identity and digital presence for Kickboxing Ireland</p>
+          </div>
+          <div class="work-item-caption">
+            <p class="work-item-meta">Brand &amp; Digital · Sport</p>
+            <p class="work-item-title">Visual identity and digital presence for Kickboxing Ireland</p>
+          </div>
+        </a>
+        <a href="work-camborne.html" class="work-item" data-reveal>
+          <div class="img img--3-2 img--overlay">
+            <img src="https://bunny-wp-pullzone-xm3uwe2lhs.b-cdn.net/wp-content/uploads/2024/04/PEB-Edited-scaled.jpg" alt="Camborne Town Council" />
+          </div>
+          <div class="work-item-overlay">
+            <p class="work-item-meta">Web &amp; Digital · Local Government</p>
+            <p class="work-item-title">Digital presence for Camborne Town Council</p>
+          </div>
+          <div class="work-item-caption">
+            <p class="work-item-meta">Web &amp; Digital · Local Government</p>
+            <p class="work-item-title">Digital presence for Camborne Town Council</p>
           </div>
         </a>
       </div>
