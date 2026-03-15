@@ -411,6 +411,47 @@
 
 
   /* ─────────────────────────────────────────────────────────────
+   * 15. COMPLEXITY GLITCH — occasional chromatic aberration
+   * ───────────────────────────────────────────────────────────── */
+  function initComplexityGlitch() {
+    const el = document.querySelector('.hero-complex');
+    if (!el || REDUCED) return;
+
+    function glitch() {
+      // Frame 1: red/blue split + skew
+      el.style.textShadow = '-3px 0 rgba(255,40,40,0.6), 3px 0 rgba(40,100,255,0.6)';
+      el.style.transform  = 'skewX(-0.8deg)';
+
+      setTimeout(() => {
+        // Frame 2: clear
+        el.style.textShadow = 'none';
+        el.style.transform  = '';
+
+        setTimeout(() => {
+          // Frame 3: reversed split
+          el.style.textShadow = '2.5px 0 rgba(255,40,40,0.5), -2px 0 rgba(40,100,255,0.5)';
+          el.style.transform  = 'skewX(0.5deg)';
+
+          setTimeout(() => {
+            // Settle
+            el.style.textShadow = '';
+            el.style.transform  = '';
+          }, 75);
+        }, 75);
+      }, 75);
+    }
+
+    function schedule() {
+      // Re-fires every 5–11 seconds at random
+      setTimeout(() => { glitch(); schedule(); }, 5000 + Math.random() * 6000);
+    }
+
+    // First glitch after 2–4 seconds
+    setTimeout(() => { glitch(); schedule(); }, 2000 + Math.random() * 2000);
+  }
+
+
+  /* ─────────────────────────────────────────────────────────────
    * INIT
    * ───────────────────────────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', () => {
@@ -428,6 +469,7 @@
     initTilt();
     initWorkOverlays();
     initProgress();
+    initComplexityGlitch();
   });
 
 })();
