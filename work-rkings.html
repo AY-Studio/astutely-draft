@@ -243,20 +243,26 @@
       .scale-grid { grid-template-columns: repeat(2,1fr); }
       .email-grid { grid-template-columns: 1fr; }
       .email-wide { grid-column: span 1; }
-      .outcomes-grid { grid-template-columns: 1fr; }
+      .outcomes-grid { grid-template-columns: 1fr 1fr; }
       .work-nav { grid-template-columns: 1fr; }
       .work-nav a:first-child { border-right: none; border-bottom: 1px solid var(--border); }
       .work-nav a:last-child { text-align: left; }
+      /* Collapse all inline two-column content grids */
+      .rg-2col,
+      .responsive-2col { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
     }
     @media (max-width: 600px) {
       .g2,.g3,.g4 { grid-template-columns: 1fr; }
       .g-2-1, .g-1-2 { grid-template-columns: 1fr; }
       .g-strip { grid-template-columns: repeat(2,1fr); }
       .scale-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .outcomes-grid { grid-template-columns: 1fr; }
       .facts-inner { flex-direction: column; }
       .fact-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
       .case-meta-strip { gap: 1.5rem; }
       .case-meta-logo { margin-left: 0; }
+      .pull-quote p { font-size: 1.05rem; }
+      .full-bleed img { height: 50vw; }
     }
   </style>
 </head>
@@ -278,7 +284,7 @@
   </div>
 </nav>
 
-<main>
+<main class="page-content" style="padding-top:0;">
 
   <!-- ── HERO ── -->
   <div class="case-hero">
@@ -357,7 +363,7 @@
   <section class="s-dark">
     <div class="container">
       <span class="section-label section-label--light" data-reveal>Prize Photography &amp; Videography</span>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:end; margin-bottom:2rem;" data-reveal>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:end; margin-bottom:2rem;" class="rg-2col" data-reveal>
         <h2 style="font-family:'Source Serif 4',serif; font-size:clamp(1.5rem,3vw,2.2rem); font-weight:300; color:#fff; line-height:1.3; margin:0;">Every car deserves a film shoot, not a photo in a car park.</h2>
         <p style="color:rgba(255,255,255,0.55); line-height:1.7; margin:0; font-size:0.95rem;">We designed a full Content Capture system — brief, shoot day protocol, editing standards and distribution cuts for website, social, and email. The same quality bar, every time, every prize.</p>
       </div>
@@ -397,7 +403,7 @@
   <!-- ── CHALLENGES ── -->
   <section class="s-grey">
     <div class="container">
-      <div style="display:grid; grid-template-columns:1fr 1.6fr; gap:5rem; align-items:start;">
+      <div style="display:grid; grid-template-columns:1fr 1.6fr; gap:5rem; align-items:start;" class="rg-2col">
         <div data-reveal>
           <span class="section-label">Five challenges</span>
           <h2 style="font-family:'Source Serif 4',serif; font-size:clamp(1.5rem,2.8vw,2.1rem); font-weight:300; color:var(--navy); line-height:1.35; margin-bottom:1rem;">The problems that kept stacking up.</h2>
@@ -494,7 +500,7 @@
   <section class="s-dark">
     <div class="container">
       <span class="section-label section-label--light" data-reveal>Intelligent automation</span>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:end; margin-bottom:2.5rem;" data-reveal>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:end; margin-bottom:2.5rem;" class="rg-2col" data-reveal>
         <h2 style="font-family:'Source Serif 4',serif; font-size:clamp(1.5rem,3vw,2.2rem); font-weight:300; color:#fff; line-height:1.3; margin:0;">The draw ends in two hours.<br><em style="color:var(--rk-amber); font-style:normal;">The email just landed.</em></h2>
         <p style="color:rgba(255,255,255,0.55); line-height:1.7; margin:0; font-size:0.95rem;">Standard e-commerce abandonment logic is meaningless in a competition business. We rebuilt the entire trigger system around draw end times — so urgency is real, the timing is precise, and the message matches exactly where the customer is in their decision.</p>
       </div>
@@ -520,7 +526,7 @@
   <section class="s-white">
     <div class="container">
       <span class="section-label" data-reveal>Platform &amp; Payments</span>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;" data-reveal>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;" class="rg-2col" data-reveal>
         <div>
           <h2 style="font-family:'Source Serif 4',serif; font-size:clamp(1.5rem,2.8vw,2.2rem); font-weight:300; color:var(--navy); line-height:1.35; margin-bottom:1.25rem;">Thirty thousand people entering. Checkout has to hold.</h2>
           <p style="color:var(--mid-grey); line-height:1.75; margin-bottom:1rem;">We rebuilt the transaction layer from the ground up — autoscaling infrastructure so peak draw windows don't take the site down, multi-gateway payment processing with full PCI-DSS compliance, and real-time order reconciliation that tracks every entry against every draw.</p>
@@ -706,11 +712,6 @@
   </div>
 </footer>
 
-<style>
-  @media (max-width: 900px) {
-    .responsive-2col { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
-  }
-</style>
 
 </body>
 </html>
