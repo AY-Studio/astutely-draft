@@ -17,7 +17,7 @@
     }
 
     .hero-content {
-      background: #000;
+      background: var(--navy);
       justify-content: flex-end;
       padding-bottom: 4rem;
       position: relative;
@@ -112,15 +112,42 @@
       display: block;
     }
 
-    /* "complexity" — chromatic aberration, subtly unsettled */
+    /* "complexity" — occasional chromatic glitch, mostly at rest */
     @keyframes complexity-glitch {
-      0%, 100% { text-shadow: -1px 0 rgba(255,80,80,0.18), 1px 0 rgba(80,140,255,0.18); }
-      50%       { text-shadow: -1.5px 0 rgba(255,80,80,0.14), 1.5px 0 rgba(80,140,255,0.14); }
+      0% {
+        text-shadow: none; transform: none;
+        animation-timing-function: linear;
+      }
+      78% {
+        text-shadow: none; transform: none;
+        animation-timing-function: steps(1);
+      }
+      79% {
+        text-shadow: -2.5px 0 rgba(255,50,50,0.55), 2.5px 0 rgba(50,110,255,0.55);
+        transform: skewX(-0.6deg);
+        animation-timing-function: steps(1);
+      }
+      80% {
+        text-shadow: none; transform: none;
+        animation-timing-function: steps(1);
+      }
+      81% {
+        text-shadow: 2px 0 rgba(255,50,50,0.4), -1.5px 0 rgba(50,110,255,0.4);
+        transform: skewX(0.4deg);
+        animation-timing-function: steps(1);
+      }
+      82% {
+        text-shadow: none; transform: none;
+        animation-timing-function: linear;
+      }
+      100% {
+        text-shadow: none; transform: none;
+      }
     }
     .hero-complex {
       font-style: italic;
       display: inline-block;
-      animation: complexity-glitch 5s ease-in-out infinite;
+      animation: complexity-glitch 9s linear infinite;
     }
 
     /* "clarity" — luminous, unmistakable */
